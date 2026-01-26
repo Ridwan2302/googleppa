@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Google PPA</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@300;400;500;600&display=swap">
+    <title>Google PPA - Payé par Action</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@300;400;500;600;700&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -20,6 +20,7 @@
             --white: #FFFFFF;
             --shadow-sm: 0 1px 2px 0 rgba(60,64,67,0.3), 0 1px 3px 1px rgba(60,64,67,0.15);
             --shadow-md: 0 1px 3px 0 rgba(60,64,67,0.3), 0 4px 8px 3px rgba(60,64,67,0.15);
+            --shadow-lg: 0 2px 6px 2px rgba(60,64,67,0.15);
             --radius-sm: 8px;
             --radius-md: 12px;
             --radius-lg: 20px;
@@ -40,9 +41,21 @@
             line-height: 1.5;
             font-weight: 400;
             font-size: 14px;
+            animation: slideUp 0.8s ease-out;
         }
 
-        /* Navigation mobile */
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Navigation */
         .navbar {
             background-color: var(--white);
             border-bottom: 1px solid var(--google-gray-200);
@@ -50,12 +63,12 @@
             top: 0;
             width: 100%;
             z-index: 1000;
-            padding: 0 16px;
         }
 
         .nav-container {
             max-width: 100%;
             margin: 0 auto;
+            padding: 0 16px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -65,14 +78,14 @@
         .logo {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
             text-decoration: none;
         }
 
         .logo-icon {
             display: flex;
             align-items: center;
-            gap: 2px;
+            gap: 1px;
         }
 
         .logo-icon span {
@@ -80,7 +93,7 @@
             width: 10px;
             height: 10px;
             border-radius: 50%;
-            margin-right: -2px;
+            margin-right: -1px;
         }
 
         .blue-dot { background-color: var(--google-blue); }
@@ -98,79 +111,41 @@
             color: var(--google-blue);
         }
 
+        .nav-links {
+            display: none;
+        }
+
         .balance-display {
-            font-size: 13px;
-        }
-
-        /* Hero Section mobile */
-        .hero {
-            padding: 80px 16px 40px;
-            background: linear-gradient(135deg, var(--white) 0%, var(--google-gray-100) 100%);
-        }
-
-        .hero-content h1 {
-            font-size: 28px;
-            font-weight: 500;
-            line-height: 1.3;
-            margin-bottom: 16px;
-            color: var(--google-gray-900);
-        }
-
-        .hero-content h1 span {
-            color: var(--google-blue);
-        }
-
-        .hero-content p {
-            font-size: 15px;
-            color: var(--google-gray-700);
-            margin-bottom: 24px;
-        }
-
-        .hero-stats {
             display: flex;
-            justify-content: space-between;
-            margin-top: 32px;
-            padding-top: 20px;
-            border-top: 1px solid var(--google-gray-200);
-        }
-
-        .stat-item {
-            display: flex;
-            flex-direction: column;
             align-items: center;
-            flex: 1;
         }
 
-        .stat-value {
-            font-size: 20px;
-            font-weight: 500;
-            color: var(--google-blue);
-            line-height: 1;
-            margin-bottom: 4px;
-        }
-
-        .stat-label {
-            font-size: 11px;
+        .balance-text {
             color: var(--google-gray-700);
-            font-weight: 400;
-            text-align: center;
+            font-size: 12px;
+            font-weight: 500;
+            margin-right: 4px;
+        }
+
+        .balance-amount-nav {
+            color: var(--google-green);
+            font-weight: 600;
+            font-size: 14px;
         }
 
         .btn {
-            padding: 12px 24px;
+            padding: 10px 20px;
             border-radius: var(--radius-sm);
             font-weight: 500;
             text-decoration: none;
             transition: var(--transition);
             display: inline-flex;
             align-items: center;
-            justify-content: center;
-            gap: 8px;
+            gap: 6px;
             cursor: pointer;
             border: none;
             font-size: 14px;
             font-family: 'Google Sans', sans-serif;
-            width: 100%;
         }
 
         .btn-contained {
@@ -181,483 +156,22 @@
 
         .btn-contained:hover {
             background-color: #3367D6;
+            box-shadow: var(--shadow-sm);
+            transform: translateY(-2px);
         }
 
-        .task-card {
-            background-color: var(--white);
-            border-radius: var(--radius-md);
-            border: 1px solid var(--google-gray-200);
-            box-shadow: var(--shadow-md);
-            padding: 20px;
-            margin-top: 24px;
-        }
-
-        .card-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 16px;
-            padding-bottom: 12px;
-            border-bottom: 1px solid var(--google-gray-200);
-        }
-
-        .card-title {
-            font-size: 16px;
-            font-weight: 500;
-            color: var(--google-gray-900);
-        }
-
-        .card-badge {
-            background-color: var(--google-yellow);
-            color: var(--google-gray-900);
-            padding: 4px 8px;
-            border-radius: var(--radius-full);
-            font-size: 11px;
-            font-weight: 500;
-        }
-
-        .task-list {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .task-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 12px;
-            background-color: var(--google-gray-100);
-            border-radius: var(--radius-sm);
-            border: 1px solid var(--google-gray-200);
-            transition: var(--transition);
-            cursor: pointer;
-        }
-
-        .task-info h4 {
-            font-size: 13px;
-            font-weight: 500;
-            margin-bottom: 2px;
-            color: var(--google-gray-900);
-        }
-
-        .task-info p {
-            font-size: 11px;
-            color: var(--google-gray-700);
-        }
-
-        .task-reward {
-            font-weight: 500;
-            color: var(--google-green);
-            font-size: 14px;
-        }
-
-        /* Balance Card mobile */
-        .balance-card {
-            background: linear-gradient(135deg, var(--google-blue) 0%, #3367D6 100%);
-            border-radius: var(--radius-md);
-            padding: 20px;
-            color: var(--white);
-            margin: 0 16px 32px;
-            box-shadow: var(--shadow-md);
-        }
-
-        .balance-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 16px;
-        }
-
-        .balance-title {
-            font-size: 16px;
-            font-weight: 500;
-        }
-
-        .balance-amount {
-            font-size: 32px;
-            font-weight: 500;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .balance-progress {
-            background-color: rgba(255, 255, 255, 0.2);
-            height: 8px;
-            border-radius: var(--radius-full);
-            margin-bottom: 12px;
-            overflow: hidden;
-        }
-
-        .progress-bar {
-            height: 100%;
-            background-color: var(--google-green);
-            width: 0%;
-            transition: width 0.3s ease;
-        }
-
-        .balance-threshold {
-            display: flex;
-            justify-content: space-between;
-            font-size: 12px;
-            opacity: 0.9;
-        }
-
-        /* Features mobile */
-        .section {
-            padding: 40px 16px;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 24px;
-            font-weight: 500;
-            margin-bottom: 12px;
-            color: var(--google-gray-900);
-        }
-
-        .section-subtitle {
-            text-align: center;
-            font-size: 14px;
-            color: var(--google-gray-700);
-            margin: 0 auto 32px;
-            max-width: 100%;
-        }
-
-        .features-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            margin-top: 32px;
-        }
-
-        .feature-card {
-            background-color: var(--white);
-            border-radius: var(--radius-md);
-            border: 1px solid var(--google-gray-200);
-            padding: 20px;
-            transition: var(--transition);
-            text-align: center;
-        }
-
-        .feature-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            background-color: var(--google-gray-100);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 16px;
+        .btn-outlined {
+            background-color: transparent;
             color: var(--google-blue);
-            font-size: 20px;
-            border: 1px solid var(--google-gray-200);
+            border: 1px solid var(--google-gray-300);
         }
 
-        .feature-card h3 {
-            font-size: 16px;
-            font-weight: 500;
-            margin-bottom: 8px;
-            color: var(--google-gray-900);
-        }
-
-        .feature-card p {
-            color: var(--google-gray-700);
-            font-size: 13px;
-            line-height: 1.4;
-        }
-
-        /* Tasks Section mobile */
-        .tasks-section {
+        .btn-outlined:hover {
             background-color: var(--google-gray-100);
-            border-top: 1px solid var(--google-gray-200);
-            border-bottom: 1px solid var(--google-gray-200);
+            border-color: var(--google-gray-400);
         }
 
-        .tasks-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 24px;
-        }
-
-        .tasks-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
-
-        .task-card-large {
-            background-color: var(--white);
-            border-radius: var(--radius-md);
-            border: 1px solid var(--google-gray-200);
-            overflow: hidden;
-            transition: var(--transition);
-        }
-
-        .task-header {
-            padding: 16px;
-            border-bottom: 1px solid var(--google-gray-200);
-        }
-
-        .task-category {
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-            padding: 4px 8px;
-            background-color: var(--google-gray-100);
-            color: var(--google-gray-700);
-            border-radius: var(--radius-full);
-            font-size: 10px;
-            font-weight: 500;
-            margin-bottom: 8px;
-        }
-
-        .task-card-large h3 {
-            font-size: 15px;
-            font-weight: 500;
-            color: var(--google-gray-900);
-            line-height: 1.3;
-        }
-
-        .task-body {
-            padding: 16px;
-        }
-
-        .task-meta {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 16px;
-        }
-
-        .meta-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            flex: 1;
-        }
-
-        .meta-label {
-            font-size: 10px;
-            color: var(--google-gray-700);
-            margin-bottom: 2px;
-        }
-
-        .meta-value {
-            font-size: 12px;
-            font-weight: 500;
-            color: var(--google-gray-900);
-        }
-
-        .task-reward-large {
-            background-color: var(--google-green);
-            color: var(--white);
-            padding: 10px;
-            border-radius: var(--radius-sm);
-            font-weight: 500;
-            font-size: 16px;
-            text-align: center;
-            margin-bottom: 16px;
-        }
-
-        /* Payments mobile */
-        .payments-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-            margin-top: 24px;
-        }
-
-        .payment-card {
-            background-color: var(--white);
-            border: 1px solid var(--google-gray-200);
-            border-radius: var(--radius-md);
-            padding: 16px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            transition: var(--transition);
-            cursor: pointer;
-            min-height: 100px;
-        }
-
-        .payment-icon {
-            font-size: 24px;
-            margin-bottom: 8px;
-            height: 32px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .payment-icon.paypal { color: #003087; }
-        .payment-icon.wave { color: #663399; }
-        .payment-icon.mtn { color: #FFCC00; }
-        .payment-icon.bank { color: var(--google-blue); }
-        .payment-icon.visa { color: #1A1F71; }
-
-        .payment-name {
-            font-size: 12px;
-            font-weight: 500;
-            color: var(--google-gray-900);
-            text-align: center;
-        }
-
-        .currencies-container {
-            display: flex;
-            justify-content: center;
-            gap: 8px;
-            margin-top: 24px;
-            flex-wrap: wrap;
-        }
-
-        .currency-chip {
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-            padding: 6px 12px;
-            background-color: var(--white);
-            border: 1px solid var(--google-gray-200);
-            border-radius: var(--radius-full);
-            font-weight: 500;
-            font-size: 12px;
-        }
-
-        .currency-chip.active {
-            background-color: var(--google-blue);
-            color: var(--white);
-            border-color: var(--google-blue);
-        }
-
-        /* CTA Section mobile */
-        .cta-section {
-            background-color: var(--google-blue);
-            padding: 40px 16px;
-            text-align: center;
-            color: var(--white);
-        }
-
-        .cta-section h2 {
-            font-size: 22px;
-            font-weight: 500;
-            margin-bottom: 16px;
-        }
-
-        .cta-section p {
-            font-size: 14px;
-            margin: 0 auto 24px;
-            opacity: 0.9;
-        }
-
-        .cta-button {
-            background-color: var(--white);
-            color: var(--google-blue);
-            padding: 14px 24px;
-            border-radius: var(--radius-md);
-            font-size: 14px;
-            font-weight: 500;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            text-decoration: none;
-            transition: var(--transition);
-            width: auto;
-        }
-
-        /* Footer mobile */
-        .footer {
-            background-color: var(--google-gray-100);
-            color: var(--google-gray-700);
-            padding: 32px 16px 24px;
-            border-top: 1px solid var(--google-gray-200);
-        }
-
-        .footer-container {
-            display: flex;
-            flex-direction: column;
-            gap: 32px;
-        }
-
-        .footer-brand {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .footer-logo {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .footer-logo-text {
-            font-size: 18px;
-            font-weight: 500;
-            color: var(--google-gray-900);
-        }
-
-        .footer-logo-text span {
-            color: var(--google-blue);
-        }
-
-        .footer-description {
-            font-size: 12px;
-            line-height: 1.4;
-        }
-
-        .footer-social {
-            display: flex;
-            gap: 12px;
-            margin-top: 16px;
-        }
-
-        .social-link {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 32px;
-            height: 32px;
-            background-color: var(--white);
-            border-radius: 50%;
-            color: var(--google-gray-700);
-            text-decoration: none;
-            transition: var(--transition);
-            border: 1px solid var(--google-gray-200);
-            font-size: 14px;
-        }
-
-        .footer-column h3 {
-            font-size: 14px;
-            font-weight: 500;
-            color: var(--google-gray-900);
-            margin-bottom: 12px;
-        }
-
-        .footer-links {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .footer-link {
-            color: var(--google-gray-700);
-            text-decoration: none;
-            font-size: 12px;
-            transition: var(--transition);
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 24px;
-            margin-top: 32px;
-            border-top: 1px solid var(--google-gray-300);
-            font-size: 10px;
-            color: var(--google-gray-600);
-        }
-
-        /* Modals mobile */
+        /* Modal */
         .modal {
             display: none;
             position: fixed;
@@ -674,11 +188,11 @@
 
         .modal-content {
             background-color: var(--white);
-            border-radius: var(--radius-md);
+            border-radius: var(--radius-lg);
             padding: 24px;
+            max-width: 100%;
             width: 100%;
-            max-width: 400px;
-            box-shadow: var(--shadow-md);
+            box-shadow: var(--shadow-lg);
             position: relative;
         }
 
@@ -688,104 +202,863 @@
             right: 16px;
             background: none;
             border: none;
-            font-size: 20px;
+            font-size: 24px;
             color: var(--google-gray-700);
             cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .modal-close:hover {
+            color: var(--google-red);
         }
 
         .modal-icon {
             text-align: center;
-            margin-bottom: 16px;
+            margin-bottom: 20px;
         }
 
         .modal-icon i {
-            font-size: 36px;
+            font-size: 40px;
             color: var(--google-yellow);
         }
 
         .modal-title {
-            font-size: 18px;
+            font-size: 20px;
             font-weight: 500;
             color: var(--google-gray-900);
             text-align: center;
-            margin-bottom: 12px;
+            margin-bottom: 16px;
         }
 
         .modal-message {
             color: var(--google-gray-700);
             text-align: center;
-            margin-bottom: 20px;
-            line-height: 1.4;
-            font-size: 13px;
+            margin-bottom: 24px;
+            line-height: 1.5;
+            font-size: 14px;
         }
 
         .modal-actions {
             display: flex;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 100px 0 60px;
+            background: linear-gradient(135deg, var(--white) 0%, var(--google-gray-100) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: radial-gradient(circle at 70% 30%, rgba(66, 133, 244, 0.08) 0%, transparent 70%);
+        }
+
+        .hero-container {
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 0 16px;
+            display: flex;
             flex-direction: column;
+            gap: 40px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content {
+            width: 100%;
+        }
+
+        .hero-content h1 {
+            font-size: 28px;
+            font-weight: 500;
+            line-height: 1.3;
+            margin-bottom: 20px;
+            color: var(--google-gray-900);
+            text-align: left;
+        }
+
+        .hero-content h1 span {
+            color: var(--google-blue);
+        }
+
+        .hero-content p {
+            font-size: 16px;
+            color: var(--google-gray-700);
+            margin-bottom: 32px;
+            line-height: 1.5;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: space-between;
+            margin: 40px 0;
+            padding: 0;
+            border: none;
+            width: 100%;
+            max-width: 600px;
+            flex-wrap: nowrap;
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+            min-width: 0;
+        }
+
+        .stat-value {
+            font-size: 24px;
+            font-weight: 500;
+            color: var(--google-blue);
+            line-height: 1;
+            margin-bottom: 6px;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: var(--google-gray-700);
+            font-weight: 400;
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        .hero-cta {
+            text-align: center;
+            width: 100%;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+
+        .hero-image {
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .task-card {
+            background-color: var(--white);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--google-gray-200);
+            box-shadow: var(--shadow-md);
+            padding: 24px;
+            width: 100%;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--google-gray-200);
+        }
+
+        .card-title {
+            font-size: 18px;
+            font-weight: 500;
+            color: var(--google-gray-900);
+        }
+
+        .card-badge {
+            background-color: var(--google-yellow);
+            color: var(--google-gray-900);
+            padding: 6px 12px;
+            border-radius: var(--radius-full);
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .task-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .task-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px;
+            background-color: var(--google-gray-100);
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--google-gray-200);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .task-item:hover {
+            background-color: var(--white);
+            border-color: var(--google-blue);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .task-info h4 {
+            font-size: 15px;
+            font-weight: 500;
+            margin-bottom: 4px;
+            color: var(--google-gray-900);
+        }
+
+        .task-info p {
+            font-size: 13px;
+            color: var(--google-gray-700);
+        }
+
+        .task-reward {
+            font-weight: 500;
+            color: var(--google-green);
+            font-size: 16px;
+        }
+
+        /* Features Section */
+        .section {
+            padding: 70px 0;
+        }
+
+        .section-spacing {
+            margin-bottom: 40px;
+        }
+
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 28px;
+            font-weight: 500;
+            margin-bottom: 16px;
+            color: var(--google-gray-900);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 16px;
+            color: var(--google-gray-700);
+            max-width: 100%;
+            margin: 0 auto 50px;
+            line-height: 1.5;
+            padding: 0 8px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .feature-card {
+            background-color: var(--white);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--google-gray-200);
+            padding: 30px;
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .feature-card:hover {
+            border-color: var(--google-blue);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-4px);
+        }
+
+        .feature-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background-color: var(--google-gray-100);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            color: var(--google-blue);
+            font-size: 24px;
+            border: 1px solid var(--google-gray-200);
+        }
+
+        .feature-card h3 {
+            font-size: 20px;
+            font-weight: 500;
+            margin-bottom: 12px;
+            color: var(--google-gray-900);
+        }
+
+        .feature-card p {
+            color: var(--google-gray-700);
+            font-size: 15px;
+            line-height: 1.5;
+        }
+
+        /* Tasks Section */
+        .tasks-section {
+            background-color: var(--google-gray-100);
+            border-top: 1px solid var(--google-gray-200);
+            border-bottom: 1px solid var(--google-gray-200);
+        }
+
+        .tasks-header {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-bottom: 40px;
+        }
+
+        .tasks-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+        }
+
+        .task-card-large {
+            background-color: var(--white);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--google-gray-200);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .task-card-large:hover {
+            border-color: var(--google-blue);
+            box-shadow: var(--shadow-md);
+        }
+
+        .task-header {
+            padding: 20px;
+            border-bottom: 1px solid var(--google-gray-200);
+        }
+
+        .task-category {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            background-color: var(--google-gray-100);
+            color: var(--google-gray-700);
+            border-radius: var(--radius-full);
+            font-size: 12px;
+            font-weight: 500;
+            margin-bottom: 12px;
+        }
+
+        .task-card-large h3 {
+            font-size: 18px;
+            font-weight: 500;
+            color: var(--google-gray-900);
+            line-height: 1.4;
+        }
+
+        .task-body {
+            padding: 20px;
+        }
+
+        .task-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .meta-label {
+            font-size: 12px;
+            color: var(--google-gray-700);
+            margin-bottom: 4px;
+        }
+
+        .meta-value {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--google-gray-900);
+        }
+
+        .task-reward-large {
+            background-color: var(--google-green);
+            color: var(--white);
+            padding: 12px;
+            border-radius: var(--radius-sm);
+            font-weight: 500;
+            font-size: 18px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        /* Additional Tasks */
+        .additional-tasks {
+            display: none;
+            margin-top: 40px;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Payments Section */
+        .payments-section {
+            background-color: var(--white);
+        }
+
+        .payments-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin-top: 40px;
+        }
+
+        .payment-card {
+            background-color: var(--white);
+            border: 1px solid var(--google-gray-200);
+            border-radius: var(--radius-md);
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .payment-card:hover {
+            border-color: var(--google-blue);
+            box-shadow: var(--shadow-sm);
+            transform: translateY(-2px);
+        }
+
+        .payment-icon {
+            font-size: 32px;
+            margin-bottom: 12px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .payment-icon.paypal { color: #003087; }
+        .payment-icon.wave { color: #663399; }
+        .payment-icon.mtn { color: #FFCC00; }
+        .payment-icon.bank { color: var(--google-blue); }
+        .payment-icon.visa { color: #1A1F71; }
+
+        .payment-name {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--google-gray-900);
+            text-align: center;
+        }
+
+        .currencies-container {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .currency-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background-color: var(--white);
+            border: 1px solid var(--google-gray-200);
+            border-radius: var(--radius-full);
+            font-weight: 500;
+            font-size: 14px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .currency-chip:hover {
+            border-color: var(--google-blue);
+        }
+
+        .currency-chip.active {
+            background-color: var(--google-blue);
+            color: var(--white);
+            border-color: var(--google-blue);
+        }
+
+        /* User Balance */
+        .balance-card {
+            background: linear-gradient(135deg, var(--google-blue) 0%, #3367D6 100%);
+            border-radius: var(--radius-lg);
+            padding: 30px;
+            color: var(--white);
+            max-width: 100%;
+            margin: 0 auto 50px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .balance-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .balance-title {
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        .balance-amount {
+            font-size: 42px;
+            font-weight: 500;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .balance-progress {
+            background-color: rgba(255, 255, 255, 0.2);
+            height: 12px;
+            border-radius: var(--radius-full);
+            margin-bottom: 16px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background-color: var(--google-green);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .balance-threshold {
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background-color: var(--google-blue);
+            padding: 70px 0;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .cta-section h2 {
+            font-size: 28px;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 16px;
+            max-width: 100%;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+            padding: 0 16px;
+            line-height: 1.5;
+        }
+
+        .cta-button {
+            background-color: var(--white);
+            color: var(--google-blue);
+            padding: 14px 36px;
+            border-radius: var(--radius-md);
+            font-size: 16px;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .cta-button:hover {
+            background-color: var(--google-gray-100);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--google-gray-100);
+            color: var(--google-gray-700);
+            padding: 60px 0 40px;
+            border-top: 1px solid var(--google-gray-200);
+        }
+
+        .footer-container {
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 0 16px;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
             gap: 8px;
         }
 
-        /* Responsive pour tablettes */
+        .footer-logo-text {
+            font-size: 20px;
+            font-weight: 500;
+            color: var(--google-gray-900);
+        }
+
+        .footer-logo-text span {
+            color: var(--google-blue);
+        }
+
+        .footer-description {
+            font-size: 14px;
+            line-height: 1.5;
+            max-width: 100%;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 16px;
+            margin-top: 20px;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background-color: var(--white);
+            border-radius: 50%;
+            color: var(--google-gray-700);
+            text-decoration: none;
+            transition: var(--transition);
+            border: 1px solid var(--google-gray-200);
+        }
+
+        .social-link:hover {
+            background-color: var(--google-blue);
+            color: var(--white);
+            border-color: var(--google-blue);
+        }
+
+        .footer-column h3 {
+            font-size: 18px;
+            font-weight: 500;
+            color: var(--google-gray-900);
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-link {
+            color: var(--google-gray-700);
+            text-decoration: none;
+            font-size: 14px;
+            transition: var(--transition);
+        }
+
+        .footer-link:hover {
+            color: var(--google-blue);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 40px;
+            margin-top: 40px;
+            border-top: 1px solid var(--google-gray-300);
+            font-size: 12px;
+            color: var(--google-gray-600);
+        }
+
+        /* Desktop styles */
         @media (min-width: 768px) {
+            body {
+                font-size: 16px;
+            }
+            
+            .nav-container {
+                max-width: 1200px;
+                padding: 0 24px;
+                height: 64px;
+            }
+            
+            .logo-text {
+                font-size: 22px;
+            }
+            
+            .logo-icon span {
+                width: 12px;
+                height: 12px;
+            }
+            
+            .nav-links {
+                display: flex;
+                gap: 32px;
+            }
+            
+            .nav-link {
+                font-size: 14px;
+            }
+            
             .hero {
-                padding: 100px 24px 60px;
+                padding: 140px 0 80px;
+            }
+            
+            .hero-container {
+                max-width: 1200px;
+                padding: 0 24px;
+                flex-direction: row;
+                gap: 80px;
+                align-items: flex-start;
+            }
+            
+            .hero-content {
+                width: 50%;
+                text-align: left;
             }
             
             .hero-content h1 {
+                font-size: 44px;
+                text-align: left;
+            }
+            
+            .hero-content p {
+                font-size: 18px;
+            }
+            
+            .hero-stats {
+                margin: 50px 0 40px;
+                justify-content: space-between;
+                max-width: 100%;
+            }
+            
+            .stat-item {
+                flex: 1;
+            }
+            
+            .stat-value {
                 font-size: 32px;
             }
             
+            .stat-label {
+                font-size: 14px;
+            }
+            
+            .hero-cta {
+                text-align: left;
+                margin-top: 50px;
+                margin-bottom: 30px;
+            }
+            
+            .hero-image {
+                width: 50%;
+                max-width: 100%;
+            }
+            
+            .task-card {
+                max-width: 400px;
+                margin-left: auto;
+            }
+            
             .section {
-                padding: 60px 24px;
+                padding: 90px 0;
+            }
+            
+            .container {
+                max-width: 1200px;
+                padding: 0 24px;
+            }
+            
+            .section-title {
+                font-size: 36px;
+            }
+            
+            .section-subtitle {
+                font-size: 18px;
+                max-width: 700px;
+                margin-bottom: 60px;
             }
             
             .features-grid {
-                flex-direction: row;
-                gap: 20px;
-            }
-            
-            .tasks-grid {
-                display: grid;
-                grid-template-columns: repeat(2, 1fr);
-                gap: 16px;
-            }
-            
-            .payments-grid {
                 grid-template-columns: repeat(3, 1fr);
-            }
-            
-            .footer-container {
-                flex-direction: row;
-                flex-wrap: wrap;
                 gap: 40px;
-            }
-            
-            .footer-brand {
-                flex: 2;
-                min-width: 250px;
-            }
-            
-            .footer-column {
-                flex: 1;
-                min-width: 150px;
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .hero-container {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 40px;
-                max-width: 1000px;
-                margin: 0 auto;
             }
             
             .tasks-grid {
                 grid-template-columns: repeat(3, 1fr);
+                gap: 30px;
+            }
+            
+            .additional-tasks .tasks-grid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 30px;
             }
             
             .payments-grid {
                 grid-template-columns: repeat(5, 1fr);
+                gap: 20px;
+            }
+            
+            .footer-container {
+                grid-template-columns: 2fr 1fr 1fr 1fr;
+                gap: 60px;
+            }
+            
+            .cta-section {
+                padding: 90px 0;
+            }
+            
+            .cta-section h2 {
+                font-size: 36px;
+            }
+            
+            .cta-section p {
+                font-size: 18px;
+                max-width: 700px;
+            }
+            
+            .balance-card {
+                padding: 40px;
+            }
+            
+            .balance-amount {
+                font-size: 48px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .tasks-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            .additional-tasks .tasks-grid {
+                grid-template-columns: repeat(4, 1fr);
             }
         }
     </style>
@@ -804,98 +1077,99 @@
                 <div class="logo-text">Google <span>PPA</span></div>
             </a>
             
+            <div class="nav-links">
+                <a href="#" class="nav-link active">Accueil</a>
+                <a href="#features" class="nav-link">Comment ça marche</a>
+                <a href="#tasks" class="nav-link">Tâches</a>
+                <a href="#payments" class="nav-link">Paiements</a>
+                <a href="#faq" class="nav-link">FAQ</a>
+            </div>
+            
             <div class="balance-display">
-                <div style="display: flex; align-items: center; gap: 8px;">
-                    <span style="color: var(--google-gray-700); font-weight: 500;">Solde :</span>
-                    <span style="color: var(--google-green); font-weight: 600;" id="currentBalance">0 FCFA</span>
-                </div>
+                <span class="balance-text">Solde :</span>
+                <span class="balance-amount-nav" id="currentBalance">0 FCFA</span>
             </div>
         </div>
     </nav>
 
-    <!-- Modals -->
+    <!-- Modal pour seuil de paiement -->
     <div id="paymentModal" class="modal">
         <div class="modal-content">
             <button class="modal-close" onclick="closeModal()">&times;</button>
             <div class="modal-icon">
                 <i class="fas fa-money-bill-wave"></i>
             </div>
-            <h2 class="modal-title">Seuil non atteint</h2>
-            <p class="modal-message" id="modalMessage"></p>
+            <h2 class="modal-title">Seuil de paiement non atteint</h2>
+            <p class="modal-message" id="modalMessage">
+                <!-- Le message sera ajouté dynamiquement -->
+            </p>
             <div class="modal-actions">
-                <button class="btn btn-contained" onclick="closeModal()">Continuer</button>
-            </div>
-        </div>
-    </div>
-
-    <div id="taskModal" class="modal">
-        <div class="modal-content">
-            <button class="modal-close" onclick="closeTaskModal()">&times;</button>
-            <div class="modal-icon">
-                <i class="fas fa-check-circle" style="color: var(--google-green);"></i>
-            </div>
-            <h2 class="modal-title">Tâche terminée</h2>
-            <p class="modal-message" id="taskRewardMessage"></p>
-            <div class="modal-actions">
-                <button class="btn btn-contained" onclick="closeTaskModal()">Continuer</button>
+                <button class="btn btn-contained" onclick="closeModal()">Continuer les tâches</button>
+                <button class="btn btn-outlined" onclick="closeModal()">Fermer</button>
             </div>
         </div>
     </div>
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-content">
-            <h1>Gagnez de l'argent en réalisant des tâches <span>numériques</span></h1>
-            <p>Google PPA vous permet d'effectuer des actions en ligne et d'être rémunéré en temps réel. Rejoignez plus de 500 000 utilisateurs qui gagnent un revenu supplémentaire avec nous.</p>
-            
-            <a href="#tasks" class="btn btn-contained">
-                <i class="fas fa-play-circle"></i> Commencer
-            </a>
-            
-            <div class="hero-stats">
-                <div class="stat-item">
-                    <div class="stat-value">500K+</div>
-                    <div class="stat-label">Utilisateurs</div>
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Gagnez de l'argent en réalisant des tâches <span>numériques</span></h1>
+                <p>Google PPA vous permet d'effectuer des actions en ligne et d'être rémunéré en temps réel. Rejoignez plus de 500 000 utilisateurs qui gagnent un revenu supplémentaire avec nous.</p>
+                
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-value">500K+</div>
+                        <div class="stat-label">Utilisateurs actifs</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">$2.5M+</div>
+                        <div class="stat-label">Distribués</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">10K+</div>
+                        <div class="stat-label">Tâches disponibles</div>
+                    </div>
                 </div>
-                <div class="stat-item">
-                    <div class="stat-value">$2.5M+</div>
-                    <div class="stat-label">Distribués</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-value">10K+</div>
-                    <div class="stat-label">Tâches</div>
+                
+                <div class="hero-cta">
+                    <a href="#tasks" class="btn btn-contained" style="padding: 14px 32px; font-size: 16px;">
+                        <i class="fas fa-play-circle"></i> Commencer maintenant
+                    </a>
                 </div>
             </div>
             
-            <div class="task-card">
-                <div class="card-header">
-                    <div class="card-title">Tâches disponibles</div>
-                    <div class="card-badge">Nouveau</div>
-                </div>
-                
-                <div class="task-list">
-                    <div class="task-item" data-task="Sondage d'application" data-reward="600" data-currency="FCFA">
-                        <div class="task-info">
-                            <h4>Sondage d'application</h4>
-                            <p>5-7 min • Facile</p>
-                        </div>
-                        <div class="task-reward">600 FCFA</div>
+            <div class="hero-image">
+                <div class="task-card">
+                    <div class="card-header">
+                        <div class="card-title">Tâches disponibles</div>
+                        <div class="card-badge">Nouveau</div>
                     </div>
                     
-                    <div class="task-item" data-task="Test d'application" data-reward="4" data-currency="$">
-                        <div class="task-info">
-                            <h4>Test d'application</h4>
-                            <p>8-10 min • Moyen</p>
+                    <div class="task-list">
+                        <div class="task-item" onclick="openSurveyLink()">
+                            <div class="task-info">
+                                <h4>Sondage d'application</h4>
+                                <p>5-7 min • Facile</p>
+                            </div>
+                            <div class="task-reward">600 FCFA</div>
                         </div>
-                        <div class="task-reward">$4</div>
-                    </div>
-                    
-                    <div class="task-item" data-task="Évaluation d'app" data-reward="5" data-currency="€">
-                        <div class="task-info">
-                            <h4>Évaluation d'app</h4>
-                            <p>6-8 min • Facile</p>
+                        
+                        <div class="task-item" onclick="openSurveyLink()">
+                            <div class="task-info">
+                                <h4>Test d'application mobile</h4>
+                                <p>8-10 min • Moyen</p>
+                            </div>
+                            <div class="task-reward">$4</div>
                         </div>
-                        <div class="task-reward">€5</div>
+                        
+                        <div class="task-item" onclick="openSurveyLink()">
+                            <div class="task-info">
+                                <h4>Évaluation d'application</h4>
+                                <p>6-8 min • Facile</p>
+                            </div>
+                            <div class="task-reward">€5</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -903,214 +1177,460 @@
     </section>
 
     <!-- Balance Card -->
-    <div class="balance-card">
-        <div class="balance-header">
-            <div class="balance-title">Votre solde</div>
-            <div style="font-size: 12px; opacity: 0.9;">Min: 500 FCFA</div>
+    <section class="section" style="padding-top: 0;">
+        <div class="container">
+            <div class="balance-card">
+                <div class="balance-header">
+                    <div class="balance-title">Votre solde disponible</div>
+                    <div style="font-size: 14px; opacity: 0.9;">Seuil minimum: 500 FCFA</div>
+                </div>
+                <div class="balance-amount" id="balanceAmount">0 FCFA</div>
+                <div class="balance-progress">
+                    <div class="progress-bar" id="progressBar"></div>
+                </div>
+                <div class="balance-threshold">
+                    <span>0 FCFA</span>
+                    <span>500 FCFA</span>
+                </div>
+            </div>
         </div>
-        <div class="balance-amount" id="balanceAmount">0 FCFA</div>
-        <div class="balance-progress">
-            <div class="progress-bar" id="progressBar"></div>
-        </div>
-        <div class="balance-threshold">
-            <span>0 FCFA</span>
-            <span>500 FCFA</span>
-        </div>
-    </div>
+    </section>
 
     <!-- Features Section -->
     <section class="section" id="features">
-        <h2 class="section-title">Comment ça marche</h2>
-        <p class="section-subtitle">Trois étapes simples pour gagner</p>
-        
-        <div class="features-grid">
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-tasks"></i>
-                </div>
-                <h3>Choisissez des tâches</h3>
-                <p>Parcourez et sélectionnez les tâches qui vous intéressent.</p>
-            </div>
+        <div class="container">
+            <h2 class="section-title">Comment ça marche</h2>
+            <p class="section-subtitle">Trois étapes simples pour commencer à gagner avec Google PPA</p>
             
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-play-circle"></i>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <h3>Choisissez des tâches</h3>
+                    <p>Parcourez notre catalogue de tâches et sélectionnez celles qui vous intéressent. Aucune compétence particulière requise.</p>
                 </div>
-                <h3>Effectuez les tâches</h3>
-                <p>Suivez les instructions pour chaque tâche.</p>
-            </div>
-            
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-money-bill-wave"></i>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-play-circle"></i>
+                    </div>
+                    <h3>Effectuez les tâches</h3>
+                    <p>Suivez les instructions simples pour chaque tâche. La plupart prennent moins de 10 minutes à compléter.</p>
                 </div>
-                <h3>Recevez vos paiements</h3>
-                <p>Votre récompense est ajoutée instantanément.</p>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                    <h3>Recevez vos paiements</h3>
+                    <p>Une fois la tâche terminée, votre récompense est ajoutée instantanément à votre solde disponible.</p>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Tasks Section -->
     <section class="section tasks-section" id="tasks">
-        <div class="tasks-header">
-            <div>
-                <h2 class="section-title" style="text-align: left; margin-bottom: 4px;">Tâches disponibles</h2>
-                <p class="section-subtitle" style="text-align: left; margin: 0;">Sondages d'applications</p>
-            </div>
-        </div>
-        
-        <div class="tasks-grid">
-            <!-- Tâches FCFA -->
-            <div class="task-card-large">
-                <div class="task-header">
-                    <div class="task-category">
-                        <i class="fas fa-mobile-alt"></i> Sondage
-                    </div>
-                    <h3>Sondage expérience utilisateur</h3>
+        <div class="container">
+            <div class="tasks-header">
+                <div>
+                    <h2 class="section-title" style="text-align: left; margin-bottom: 8px;">Tâches disponibles</h2>
+                    <p class="section-subtitle" style="text-align: left; margin: 0;">Sondages d'applications - Gagnez en testant des applications</p>
                 </div>
-                <div class="task-body">
-                    <div class="task-meta">
-                        <div class="meta-item">
-                            <div class="meta-label">Durée</div>
-                            <div class="meta-value">7-9 min</div>
+                <button class="btn btn-outlined" id="viewAllTasks" style="align-self: flex-start;">
+                    Voir plus de tâches <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+            
+            <div class="tasks-grid">
+                <!-- Tâche 1 - FCFA -->
+                <div class="task-card-large">
+                    <div class="task-header">
+                        <div class="task-category">
+                            <i class="fas fa-mobile-alt"></i> Sondage d'application
                         </div>
-                        <div class="meta-item">
-                            <div class="meta-label">Niveau</div>
-                            <div class="meta-value">Facile</div>
-                        </div>
+                        <h3>Sondage sur l'expérience utilisateur d'une application</h3>
                     </div>
-                    <div class="task-reward-large">650 FCFA</div>
-                    <button class="btn btn-contained" onclick="completeTask('Sondage UX', 650, 'FCFA')">
-                        <i class="fas fa-play"></i> Commencer
-                    </button>
+                    <div class="task-body">
+                        <div class="task-meta">
+                            <div class="meta-item">
+                                <div class="meta-label">Durée</div>
+                                <div class="meta-value">7-9 min</div>
+                            </div>
+                            <div class="meta-item">
+                                <div class="meta-label">Niveau</div>
+                                <div class="meta-value">Facile</div>
+                            </div>
+                            <div class="meta-item">
+                                <div class="meta-label">Places</div>
+                                <div class="meta-value">Illimité</div>
+                            </div>
+                        </div>
+                        
+                        <div class="task-reward-large">650 FCFA</div>
+                        
+                        <button class="btn btn-contained" style="width: 100%; justify-content: center;" onclick="openSurveyLink()">
+                            <i class="fas fa-play"></i> Commencer cette tâche
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Tâche 2 - FCFA -->
+                <div class="task-card-large">
+                    <div class="task-header">
+                        <div class="task-category">
+                            <i class="fas fa-star"></i> Évaluation d'app
+                        </div>
+                        <h3>Évaluation des fonctionnalités d'une nouvelle application</h3>
+                    </div>
+                    <div class="task-body">
+                        <div class="task-meta">
+                            <div class="meta-item">
+                                <div class="meta-label">Durée</div>
+                                <div class="meta-value">8-10 min</div>
+                            </div>
+                            <div class="meta-item">
+                                <div class="meta-label">Niveau</div>
+                                <div class="meta-value">Facile</div>
+                            </div>
+                            <div class="meta-item">
+                                <div class="meta-label">Places</div>
+                                <div class="meta-value">42 restantes</div>
+                            </div>
+                        </div>
+                        
+                        <div class="task-reward-large">750 FCFA</div>
+                        
+                        <button class="btn btn-contained" style="width: 100%; justify-content: center;" onclick="openSurveyLink()">
+                            <i class="fas fa-play"></i> Commencer cette tâche
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Tâche 3 - Euros -->
+                <div class="task-card-large">
+                    <div class="task-header">
+                        <div class="task-category">
+                            <i class="fas fa-chart-line"></i> Étude d'app
+                        </div>
+                        <h3>Étude sur l'utilisation quotidienne d'une application</h3>
+                    </div>
+                    <div class="task-body">
+                        <div class="task-meta">
+                            <div class="meta-item">
+                                <div class="meta-label">Durée</div>
+                                <div class="meta-value">12-15 min</div>
+                            </div>
+                            <div class="meta-item">
+                                <div class="meta-label">Niveau</div>
+                                <div class="meta-value">Intermédiaire</div>
+                            </div>
+                            <div class="meta-item">
+                                <div class="meta-label">Places</div>
+                                <div class="meta-value">24 restantes</div>
+                            </div>
+                        </div>
+                        
+                        <div class="task-reward-large">€4.50</div>
+                        
+                        <button class="btn btn-contained" style="width: 100%; justify-content: center;" onclick="openSurveyLink()">
+                            <i class="fas fa-play"></i> Commencer cette tâche
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Tâche 4 - Dollars -->
+                <div class="task-card-large">
+                    <div class="task-header">
+                        <div class="task-category">
+                            <i class="fas fa-bug"></i> Test d'application
+                        </div>
+                        <h3>Test de performance d'une application mobile</h3>
+                    </div>
+                    <div class="task-body">
+                        <div class="task-meta">
+                            <div class="meta-item">
+                                <div class="meta-label">Durée</div>
+                                <div class="meta-value">10-12 min</div>
+                            </div>
+                            <div class="meta-item">
+                                <div class="meta-label">Niveau</div>
+                                <div class="meta-value">Moyen</div>
+                            </div>
+                            <div class="meta-item">
+                                <div class="meta-label">Places</div>
+                                <div class="meta-value">36 restantes</div>
+                            </div>
+                        </div>
+                        
+                        <div class="task-reward-large">$4.20</div>
+                        
+                        <button class="btn btn-contained" style="width: 100%; justify-content: center;" onclick="openSurveyLink()">
+                            <i class="fas fa-play"></i> Commencer cette tâche
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Tâche 5 - FCFA -->
+                <div class="task-card-large">
+                    <div class="task-header">
+                        <div class="task-category">
+                            <i class="fas fa-comment-alt"></i> Feedback d'app
+                        </div>
+                        <h3>Feedback sur l'interface d'une application</h3>
+                    </div>
+                    <div class="task-body">
+                        <div class="task-meta">
+                            <div class="meta-item">
+                                <div class="meta-label">Durée</div>
+                                <div class="meta-value">6-8 min</div>
+                            </div>
+                            <div class="meta-item">
+                                <div class="meta-label">Niveau</div>
+                                <div class="meta-value">Facile</div>
+                            </div>
+                            <div class="meta-item">
+                                <div class="meta-label">Places</div>
+                                <div class="meta-value">50 restantes</div>
+                            </div>
+                        </div>
+                        
+                        <div class="task-reward-large">620 FCFA</div>
+                        
+                        <button class="btn btn-contained" style="width: 100%; justify-content: center;" onclick="openSurveyLink()">
+                            <i class="fas fa-play"></i> Commencer cette tâche
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Tâche 6 - Euros -->
+                <div class="task-card-large">
+                    <div class="task-header">
+                        <div class="task-category">
+                            <i class="fas fa-search"></i> Recherche d'app
+                        </div>
+                        <h3>Recherche sur la découverte d'applications</h3>
+                    </div>
+                    <div class="task-body">
+                        <div class="task-meta">
+                            <div class="meta-item">
+                                <div class="meta-label">Durée</div>
+                                <div class="meta-value">9-11 min</div>
+                            </div>
+                            <div class="meta-item">
+                                <div class="meta-label">Niveau</div>
+                                <div class="meta-value">Facile</div>
+                            </div>
+                            <div class="meta-item">
+                                <div class="meta-label">Places</div>
+                                <div class="meta-value">28 restantes</div>
+                            </div>
+                        </div>
+                        
+                        <div class="task-reward-large">€4.80</div>
+                        
+                        <button class="btn btn-contained" style="width: 100%; justify-content: center;" onclick="openSurveyLink()">
+                            <i class="fas fa-play"></i> Commencer cette tâche
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Tâche 7 - Dollars -->
+                <div class="task-card-large">
+                    <div class="task-header">
+                        <div class="task-category">
+                            <i class="fas fa-download"></i> Installation d'app
+                        </div>
+                        <h3>Processus d'installation et première utilisation</h3>
+                    </div>
+                    <div class="task-body">
+                        <div class="task-meta">
+                            <div class="meta-item">
+                                <div class="meta-label">Durée</div>
+                                <div class="meta-value">15-18 min</div>
+                            </div>
+                            <div class="meta-item">
+                                <div class="meta-label">Niveau</div>
+                                <div class="meta-value">Intermédiaire</div>
+                            </div>
+                            <div class="meta-item">
+                                <div class="meta-label">Places</div>
+                                <div class="meta-value">18 restantes</div>
+                            </div>
+                        </div>
+                        
+                        <div class="task-reward-large">$5.50</div>
+                        
+                        <button class="btn btn-contained" style="width: 100%; justify-content: center;" onclick="openSurveyLink()">
+                            <i class="fas fa-play"></i> Commencer cette tâche
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Tâche 8 - FCFA -->
+                <div class="task-card-large">
+                    <div class="task-header">
+                        <div class="task-category">
+                            <i class="fas fa-heart"></i> Satisfaction d'app
+                        </div>
+                        <h3>Évaluation de la satisfaction globale d'une application</h3>
+                    </div>
+                    <div class="task-body">
+                        <div class="task-meta">
+                            <div class="meta-item">
+                                <div class="meta-label">Durée</div>
+                                <div class="meta-value">5-7 min</div>
+                            </div>
+                            <div class="meta-item">
+                                <div class="meta-label">Niveau</div>
+                                <div class="meta-value">Facile</div>
+                            </div>
+                            <div class="meta-item">
+                                <div class="meta-label">Places</div>
+                                <div class="meta-value">60 restantes</div>
+                            </div>
+                        </div>
+                        
+                        <div class="task-reward-large">680 FCFA</div>
+                        
+                        <button class="btn btn-contained" style="width: 100%; justify-content: center;" onclick="openSurveyLink()">
+                            <i class="fas fa-play"></i> Commencer cette tâche
+                        </button>
+                    </div>
                 </div>
             </div>
             
-            <div class="task-card-large">
-                <div class="task-header">
-                    <div class="task-category">
-                        <i class="fas fa-star"></i> Évaluation
-                    </div>
-                    <h3>Évaluation fonctionnalités app</h3>
-                </div>
-                <div class="task-body">
-                    <div class="task-meta">
-                        <div class="meta-item">
-                            <div class="meta-label">Durée</div>
-                            <div class="meta-value">8-10 min</div>
+            <!-- Additional Tasks (Hidden by default) -->
+            <div class="additional-tasks" id="additionalTasks">
+                <div class="tasks-grid">
+                    <!-- Tâche 9 - Euros -->
+                    <div class="task-card-large">
+                        <div class="task-header">
+                            <div class="task-category">
+                                <i class="fas fa-cogs"></i> Configuration d'app
+                            </div>
+                            <h3>Configuration initiale et paramètres d'une application</h3>
                         </div>
-                        <div class="meta-item">
-                            <div class="meta-label">Niveau</div>
-                            <div class="meta-value">Facile</div>
-                        </div>
-                    </div>
-                    <div class="task-reward-large">750 FCFA</div>
-                    <button class="btn btn-contained" onclick="completeTask('Évaluation app', 750, 'FCFA')">
-                        <i class="fas fa-play"></i> Commencer
-                    </button>
-                </div>
-            </div>
-            
-            <!-- Tâches Euros -->
-            <div class="task-card-large">
-                <div class="task-header">
-                    <div class="task-category">
-                        <i class="fas fa-chart-line"></i> Étude
-                    </div>
-                    <h3>Étude utilisation app</h3>
-                </div>
-                <div class="task-body">
-                    <div class="task-meta">
-                        <div class="meta-item">
-                            <div class="meta-label">Durée</div>
-                            <div class="meta-value">12-15 min</div>
-                        </div>
-                        <div class="meta-item">
-                            <div class="meta-label">Niveau</div>
-                            <div class="meta-value">Moyen</div>
+                        <div class="task-body">
+                            <div class="task-meta">
+                                <div class="meta-item">
+                                    <div class="meta-label">Durée</div>
+                                    <div class="meta-value">10-12 min</div>
+                                </div>
+                                <div class="meta-item">
+                                    <div class="meta-label">Niveau</div>
+                                    <div class="meta-value">Intermédiaire</div>
+                                </div>
+                                <div class="meta-item">
+                                    <div class="meta-label">Places</div>
+                                    <div class="meta-value">32 restantes</div>
+                                </div>
+                            </div>
+                            
+                            <div class="task-reward-large">€5.20</div>
+                            
+                            <button class="btn btn-contained" style="width: 100%; justify-content: center;" onclick="openSurveyLink()">
+                                <i class="fas fa-play"></i> Commencer cette tâche
+                            </button>
                         </div>
                     </div>
-                    <div class="task-reward-large">€4.50</div>
-                    <button class="btn btn-contained" onclick="completeTask('Étude app', 4.5, '€')">
-                        <i class="fas fa-play"></i> Commencer
-                    </button>
-                </div>
-            </div>
-            
-            <!-- Tâches Dollars -->
-            <div class="task-card-large">
-                <div class="task-header">
-                    <div class="task-category">
-                        <i class="fas fa-bug"></i> Test
-                    </div>
-                    <h3>Test performance app</h3>
-                </div>
-                <div class="task-body">
-                    <div class="task-meta">
-                        <div class="meta-item">
-                            <div class="meta-label">Durée</div>
-                            <div class="meta-value">10-12 min</div>
+                    
+                    <!-- Tâche 10 - Dollars -->
+                    <div class="task-card-large">
+                        <div class="task-header">
+                            <div class="task-category">
+                                <i class="fas fa-shield-alt"></i> Sécurité d'app
+                            </div>
+                            <h3>Évaluation des mesures de sécurité d'une application</h3>
                         </div>
-                        <div class="meta-item">
-                            <div class="meta-label">Niveau</div>
-                            <div class="meta-value">Moyen</div>
-                        </div>
-                    </div>
-                    <div class="task-reward-large">$4.20</div>
-                    <button class="btn btn-contained" onclick="completeTask('Test app', 4.2, '$')">
-                        <i class="fas fa-play"></i> Commencer
-                    </button>
-                </div>
-            </div>
-            
-            <!-- Plus de tâches -->
-            <div class="task-card-large">
-                <div class="task-header">
-                    <div class="task-category">
-                        <i class="fas fa-comment-alt"></i> Feedback
-                    </div>
-                    <h3>Feedback interface app</h3>
-                </div>
-                <div class="task-body">
-                    <div class="task-meta">
-                        <div class="meta-item">
-                            <div class="meta-label">Durée</div>
-                            <div class="meta-value">6-8 min</div>
-                        </div>
-                        <div class="meta-item">
-                            <div class="meta-label">Niveau</div>
-                            <div class="meta-value">Facile</div>
+                        <div class="task-body">
+                            <div class="task-meta">
+                                <div class="meta-item">
+                                    <div class="meta-label">Durée</div>
+                                    <div class="meta-value">14-16 min</div>
+                                </div>
+                                <div class="meta-item">
+                                    <div class="meta-label">Niveau</div>
+                                    <div class="meta-value">Avancé</div>
+                                </div>
+                                <div class="meta-item">
+                                    <div class="meta-label">Places</div>
+                                    <div class="meta-value">12 restantes</div>
+                                </div>
+                            </div>
+                            
+                            <div class="task-reward-large">$6.80</div>
+                            
+                            <button class="btn btn-contained" style="width: 100%; justify-content: center;" onclick="openSurveyLink()">
+                                <i class="fas fa-play"></i> Commencer cette tâche
+                            </button>
                         </div>
                     </div>
-                    <div class="task-reward-large">620 FCFA</div>
-                    <button class="btn btn-contained" onclick="completeTask('Feedback app', 620, 'FCFA')">
-                        <i class="fas fa-play"></i> Commencer
-                    </button>
-                </div>
-            </div>
-            
-            <div class="task-card-large">
-                <div class="task-header">
-                    <div class="task-category">
-                        <i class="fas fa-search"></i> Recherche
-                    </div>
-                    <h3>Recherche découverte app</h3>
-                </div>
-                <div class="task-body">
-                    <div class="task-meta">
-                        <div class="meta-item">
-                            <div class="meta-label">Durée</div>
-                            <div class="meta-value">9-11 min</div>
+                    
+                    <!-- Tâche 11 - FCFA -->
+                    <div class="task-card-large">
+                        <div class="task-header">
+                            <div class="task-category">
+                                <i class="fas fa-bolt"></i> Performance d'app
+                            </div>
+                            <h3>Test de vitesse et réactivité d'une application</h3>
                         </div>
-                        <div class="meta-item">
-                            <div class="meta-label">Niveau</div>
-                            <div class="meta-value">Facile</div>
+                        <div class="task-body">
+                            <div class="task-meta">
+                                <div class="meta-item">
+                                    <div class="meta-label">Durée</div>
+                                    <div class="meta-value">8-10 min</div>
+                                </div>
+                                <div class="meta-item">
+                                    <div class="meta-label">Niveau</div>
+                                    <div class="meta-value">Moyen</div>
+                                </div>
+                                <div class="meta-item">
+                                    <div class="meta-label">Places</div>
+                                    <div class="meta-value">45 restantes</div>
+                                </div>
+                            </div>
+                            
+                            <div class="task-reward-large">720 FCFA</div>
+                            
+                            <button class="btn btn-contained" style="width: 100%; justify-content: center;" onclick="openSurveyLink()">
+                                <i class="fas fa-play"></i> Commencer cette tâche
+                            </button>
                         </div>
                     </div>
-                    <div class="task-reward-large">€4.80</div>
-                    <button class="btn btn-contained" onclick="completeTask('Recherche app', 4.8, '€')">
-                        <i class="fas fa-play"></i> Commencer
-                    </button>
+                    
+                    <!-- Tâche 12 - Euros -->
+                    <div class="task-card-large">
+                        <div class="task-header">
+                            <div class="task-category">
+                                <i class="fas fa-language"></i> Localisation d'app
+                            </div>
+                            <h3>Évaluation de la localisation et traduction d'une application</h3>
+                        </div>
+                        <div class="task-body">
+                            <div class="task-meta">
+                                <div class="meta-item">
+                                    <div class="meta-label">Durée</div>
+                                    <div class="meta-value">11-13 min</div>
+                                </div>
+                                <div class="meta-item">
+                                    <div class="meta-label">Niveau</div>
+                                    <div class="meta-value">Intermédiaire</div>
+                                </div>
+                                <div class="meta-item">
+                                    <div class="meta-label">Places</div>
+                                    <div class="meta-value">22 restantes</div>
+                                </div>
+                            </div>
+                            
+                            <div class="task-reward-large">€5.50</div>
+                            
+                            <button class="btn btn-contained" style="width: 100%; justify-content: center;" onclick="openSurveyLink()">
+                                <i class="fas fa-play"></i> Commencer cette tâche
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1118,66 +1638,77 @@
 
     <!-- Payments Section -->
     <section class="section payments-section" id="payments">
-        <h2 class="section-title">Retraits rapides</h2>
-        <p class="section-subtitle">Recevez votre argent comme vous voulez</p>
-        
-        <div class="currencies-container">
-            <div class="currency-chip active">
-                <i class="fas fa-money-bill-wave"></i> FCFA
-            </div>
-            <div class="currency-chip">
-                <i class="fas fa-euro-sign"></i> Euros
-            </div>
-            <div class="currency-chip">
-                <i class="fas fa-dollar-sign"></i> Dollars
-            </div>
-        </div>
-        
-        <div class="payments-grid">
-            <div class="payment-card" onclick="showPaymentThreshold('PayPal')">
-                <div class="payment-icon paypal">
-                    <i class="fab fa-paypal"></i>
+        <div class="container">
+            <h2 class="section-title">Retraits rapides et sécurisés</h2>
+            <p class="section-subtitle">Recevez votre argent via la méthode de votre choix, dans la devise que vous préférez</p>
+            
+            <div class="currencies-container">
+                <div class="currency-chip active" onclick="selectCurrency('FCFA')">
+                    <i class="fas fa-money-bill-wave"></i> Francs CFA
                 </div>
-                <div class="payment-name">PayPal</div>
+                <div class="currency-chip" onclick="selectCurrency('EUR')">
+                    <i class="fas fa-euro-sign"></i> Euros
+                </div>
+                <div class="currency-chip" onclick="selectCurrency('USD')">
+                    <i class="fas fa-dollar-sign"></i> Dollars US
+                </div>
             </div>
             
-            <div class="payment-card" onclick="showPaymentThreshold('Wave')">
-                <div class="payment-icon wave">
-                    <i class="fas fa-mobile-alt"></i>
+            <div class="payments-grid">
+                <div class="payment-card" onclick="showPaymentThreshold('PayPal')">
+                    <div class="payment-icon paypal">
+                        <i class="fab fa-paypal"></i>
+                    </div>
+                    <div class="payment-name">PayPal</div>
                 </div>
-                <div class="payment-name">Wave</div>
+                
+                <div class="payment-card" onclick="showPaymentThreshold('Wave')">
+                    <div class="payment-icon wave">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <div class="payment-name">Wave</div>
+                </div>
+                
+                <div class="payment-card" onclick="showPaymentThreshold('MTN Money')">
+                    <div class="payment-icon mtn">
+                        <i class="fas fa-sim-card"></i>
+                    </div>
+                    <div class="payment-name">MTN Money</div>
+                </div>
+                
+                <div class="payment-card" onclick="showPaymentThreshold('Virement bancaire')">
+                    <div class="payment-icon bank">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <div class="payment-name">Virement bancaire</div>
+                </div>
+                
+                <div class="payment-card" onclick="showPaymentThreshold('Carte Visa')">
+                    <div class="payment-icon visa">
+                        <i class="fab fa-cc-visa"></i>
+                    </div>
+                    <div class="payment-name">Carte Visa</div>
+                </div>
             </div>
             
-            <div class="payment-card" onclick="showPaymentThreshold('MTN Money')">
-                <div class="payment-icon mtn">
-                    <i class="fas fa-sim-card"></i>
+            <div style="text-align: center; margin-top: 60px;">
+                <div style="background-color: var(--google-gray-100); padding: 24px; border-radius: var(--radius-md); max-width: 100%; margin: 0 auto; border: 1px solid var(--google-gray-200);">
+                    <h3 style="color: var(--google-green); margin-bottom: 12px; font-weight: 500; font-size: 18px;">Seuil de retrait minimum : 500 FCFA / $1 / €1</h3>
+                    <p style="color: var(--google-gray-700); font-size: 15px;">Les paiements sont traités dans les 24 heures suivant la demande de retrait. Aucun frais caché.</p>
                 </div>
-                <div class="payment-name">MTN Money</div>
-            </div>
-            
-            <div class="payment-card" onclick="showPaymentThreshold('Virement')">
-                <div class="payment-icon bank">
-                    <i class="fas fa-university"></i>
-                </div>
-                <div class="payment-name">Virement</div>
-            </div>
-        </div>
-        
-        <div style="text-align: center; margin-top: 32px;">
-            <div style="background-color: var(--google-gray-100); padding: 16px; border-radius: var(--radius-md); border: 1px solid var(--google-gray-200);">
-                <h3 style="color: var(--google-green); margin-bottom: 4px; font-weight: 500; font-size: 14px;">Seuil minimum : 500 FCFA</h3>
-                <p style="color: var(--google-gray-700); font-size: 12px;">Paiements traités en 24h. Aucun frais caché.</p>
             </div>
         </div>
     </section>
 
     <!-- CTA Section -->
     <section class="cta-section">
-        <h2>Commencez à gagner</h2>
-        <p>Effectuez des tâches et générez un revenu supplémentaire. Aucune inscription requise.</p>
-        <a href="#tasks" class="cta-button">
-            Voir les tâches <i class="fas fa-arrow-right"></i>
-        </a>
+        <div class="container">
+            <h2>Commencez à gagner dès aujourd'hui</h2>
+            <p>Commencez immédiatement à effectuer des tâches et générer un revenu supplémentaire. Aucune inscription requise.</p>
+            <a href="#tasks" class="cta-button">
+                Voir les tâches disponibles <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
     </section>
 
     <!-- Footer -->
@@ -1194,7 +1725,7 @@
                     <div class="footer-logo-text">Google <span>PPA</span></div>
                 </div>
                 <p class="footer-description">
-                    Plateforme de rémunération par action pour gagner avec des tâches numériques.
+                    Google PPA est une plateforme de rémunération par action qui permet à chacun de gagner de l'argent en réalisant des tâches numériques simples.
                 </p>
                 <div class="footer-social">
                     <a href="#" class="social-link">
@@ -1206,141 +1737,208 @@
                     <a href="#" class="social-link">
                         <i class="fab fa-instagram"></i>
                     </a>
+                    <a href="#" class="social-link">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
                 </div>
             </div>
             
-            <div class="footer-column">
+            <div>
                 <h3>Plateforme</h3>
                 <ul class="footer-links">
                     <li><a href="#" class="footer-link">Accueil</a></li>
                     <li><a href="#features" class="footer-link">Comment ça marche</a></li>
                     <li><a href="#tasks" class="footer-link">Tâches</a></li>
                     <li><a href="#payments" class="footer-link">Paiements</a></li>
+                    <li><a href="#" class="footer-link">Blog</a></li>
                 </ul>
             </div>
             
-            <div class="footer-column">
+            <div>
                 <h3>Support</h3>
                 <ul class="footer-links">
+                    <li><a href="#" class="footer-link">Centre d'aide</a></li>
                     <li><a href="#" class="footer-link">FAQ</a></li>
                     <li><a href="#" class="footer-link">Contact</a></li>
                     <li><a href="#" class="footer-link">Conditions</a></li>
+                    <li><a href="#" class="footer-link">Confidentialité</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h3>Contact</h3>
+                <ul class="footer-links">
+                    <li><a href="mailto:support@googleppa.com" class="footer-link">support@googleppa.com</a></li>
+                    <li><a href="tel:+2252722445566" class="footer-link">+225 27 22 44 55 66</a></li>
+                    <li><a href="#" class="footer-link">Abidjan, Côte d'Ivoire</a></li>
                 </ul>
             </div>
         </div>
         
         <div class="footer-bottom">
-            <p>&copy; 2023 Google PPA. Google est une marque déposée de Google LLC.</p>
+            <p>&copy; 2023 Google PPA. Tous droits réservés. Google et le logo Google sont des marques déposées de Google LLC.</p>
         </div>
     </footer>
 
     <script>
         // État de l'application
-        let userBalance = 0;
-        const paymentThreshold = 500;
+        let userBalance = 0; // Solde initial à 0 FCFA
+        const paymentThreshold = 500; // Seuil minimum en FCFA
+        let selectedCurrency = 'FCFA'; // Devise par défaut
         
-        const conversionRates = {
-            '€': 650,
-            '$': 600,
-            'FCFA': 1
-        };
-        
-        // Initialiser
+        // Initialiser la barre de progression
         document.addEventListener('DOMContentLoaded', function() {
             updateProgressBar();
             setupTaskListeners();
         });
         
-        // Mettre à jour la progression
+        // Mettre à jour la barre de progression
         function updateProgressBar() {
             const progress = (userBalance / paymentThreshold) * 100;
-            document.getElementById('progressBar').style.width = Math.min(progress, 100) + '%';
+            const progressBar = document.getElementById('progressBar');
+            progressBar.style.width = Math.min(progress, 100) + '%';
+            
+            // Mettre à jour l'affichage du solde
             document.getElementById('currentBalance').textContent = userBalance + ' FCFA';
             document.getElementById('balanceAmount').textContent = userBalance + ' FCFA';
         }
         
-        // Configurer les tâches
+        // Configurer les écouteurs pour les tâches
         function setupTaskListeners() {
+            // Tâches dans la carte hero
             document.querySelectorAll('.task-item').forEach(task => {
                 task.addEventListener('click', function() {
-                    const taskName = this.dataset.task;
-                    const reward = parseFloat(this.dataset.reward);
-                    const currency = this.dataset.currency;
-                    completeTask(taskName, reward, currency);
+                    openSurveyLink();
                 });
             });
-        }
-        
-        // Compléter une tâche
-        function completeTask(taskName, reward, currency) {
-            let rewardInFCFA = reward;
-            if (currency === '€') {
-                rewardInFCFA = reward * conversionRates['€'];
-            } else if (currency === '$') {
-                rewardInFCFA = reward * conversionRates['$'];
-            }
             
-            setTimeout(() => {
-                userBalance += Math.floor(rewardInFCFA);
-                updateProgressBar();
-                
-                const taskModal = document.getElementById('taskModal');
-                const rewardMessage = document.getElementById('taskRewardMessage');
-                
-                rewardMessage.textContent = `Vous avez gagné ${reward} ${currency} (${Math.floor(rewardInFCFA)} FCFA) !`;
-                taskModal.style.display = 'flex';
-            }, 1000);
-        }
-        
-        // Afficher seuil paiement
-        function showPaymentThreshold(method) {
-            const modal = document.getElementById('paymentModal');
-            const modalMessage = document.getElementById('modalMessage');
-            
-            if (userBalance < paymentThreshold) {
-                modalMessage.textContent = `Solde minimum requis: 500 FCFA. Votre solde: ${userBalance} FCFA. Complétez plus de tâches.`;
-            } else {
-                modalMessage.textContent = `Félicitations ! Vous pouvez retirer ${userBalance} FCFA via ${method}.`;
-            }
-            
-            modal.style.display = 'flex';
-        }
-        
-        // Fermer modals
-        function closeModal() {
-            document.getElementById('paymentModal').style.display = 'none';
-        }
-        
-        function closeTaskModal() {
-            document.getElementById('taskModal').style.display = 'none';
-        }
-        
-        // Fermer modal en cliquant dehors
-        window.onclick = function(event) {
-            const modals = ['paymentModal', 'taskModal'];
-            modals.forEach(modalId => {
-                const modal = document.getElementById(modalId);
-                if (event.target === modal) {
-                    modal.style.display = 'none';
+            // Bouton "Voir plus de tâches"
+            document.getElementById('viewAllTasks').addEventListener('click', function() {
+                const additionalTasks = document.getElementById('additionalTasks');
+                if (additionalTasks.style.display === 'none' || additionalTasks.style.display === '') {
+                    additionalTasks.style.display = 'block';
+                    this.innerHTML = 'Voir moins de tâches <i class="fas fa-arrow-up"></i>';
+                    // Faire défiler vers les tâches supplémentaires
+                    additionalTasks.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                } else {
+                    additionalTasks.style.display = 'none';
+                    this.innerHTML = 'Voir plus de tâches <i class="fas fa-arrow-right"></i>';
                 }
             });
         }
         
-        // Smooth scrolling
+        // Ouvrir le lien du sondage
+        function openSurveyLink() {
+            window.open('https://applocked.store/cl/i/j77w7n', '_blank');
+        }
+        
+        // Sélectionner une devise
+        function selectCurrency(currency) {
+            // Retirer la classe active de toutes les puces
+            document.querySelectorAll('.currency-chip').forEach(chip => {
+                chip.classList.remove('active');
+            });
+            
+            // Ajouter la classe active à la puce sélectionnée
+            event.target.classList.add('active');
+            selectedCurrency = currency;
+        }
+        
+        // Afficher le seuil de paiement
+        function showPaymentThreshold(method) {
+            const modal = document.getElementById('paymentModal');
+            const modalMessage = document.getElementById('modalMessage');
+            
+            let thresholdMessage = '';
+            if (userBalance < paymentThreshold) {
+                thresholdMessage = `Pour effectuer un retrait via ${method}, votre solde doit atteindre au minimum <strong>500 FCFA</strong> (ou équivalent).<br><br>Votre solde actuel est de <strong>${userBalance} FCFA</strong>.<br><br>Complétez quelques tâches supplémentaires pour atteindre le seuil minimum !`;
+            } else {
+                thresholdMessage = `Félicitations ! Vous pouvez effectuer un retrait via ${method}.<br><br>Votre solde actuel est de <strong>${userBalance} FCFA</strong>.<br><br>Cliquez sur "Continuer" pour procéder au retrait.`;
+            }
+            
+            modalMessage.innerHTML = thresholdMessage;
+            modal.style.display = 'flex';
+        }
+        
+        // Fermer les modals
+        function closeModal() {
+            document.getElementById('paymentModal').style.display = 'none';
+        }
+        
+        // Fermer le modal en cliquant en dehors
+        window.onclick = function(event) {
+            const paymentModal = document.getElementById('paymentModal');
+            
+            if (event.target === paymentModal) {
+                paymentModal.style.display = 'none';
+            }
+        }
+        
+        // Smooth scrolling pour les liens d'ancrage
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
+                
                 const targetId = this.getAttribute('href');
                 if(targetId === '#') return;
+                
                 const targetElement = document.querySelector(targetId);
                 if(targetElement) {
                     window.scrollTo({
-                        top: targetElement.offsetTop - 60,
+                        top: targetElement.offsetTop - 80,
                         behavior: 'smooth'
                     });
                 }
             });
         });
+        
+        // Highlight active nav link on scroll
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if(scrollY >= (sectionTop - 100)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if(link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+        
+        // Animation on scroll
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.feature-card, .task-card-large, .payment-card');
+            
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.style.opacity = "1";
+                    element.style.transform = "translateY(0)";
+                }
+            });
+        }
+        
+        // Set initial state for animation
+        document.querySelectorAll('.feature-card, .task-card-large, .payment-card').forEach(element => {
+            element.style.opacity = "0";
+            element.style.transform = "translateY(20px)";
+            element.style.transition = "opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)";
+        });
+        
+        window.addEventListener('scroll', animateOnScroll);
+        // Initial check
+        animateOnScroll();
     </script>
 </body>
 </html>
