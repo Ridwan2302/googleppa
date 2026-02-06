@@ -279,7 +279,7 @@
         }
 
         .hero-content h1 {
-            font-size: 28px;
+            font-size: 26px;
             font-weight: 500;
             line-height: 1.3;
             margin-bottom: 20px;
@@ -292,9 +292,9 @@
         }
 
         .hero-content p {
-            font-size: 16px;
+            font-size: 15px;
             color: var(--google-gray-700);
-            margin-bottom: 32px;
+            margin-bottom: 16px;
             line-height: 1.5;
         }
 
@@ -943,12 +943,12 @@
             }
             
             .hero-content h1 {
-                font-size: 44px;
+                font-size: 40px;
                 text-align: left;
             }
             
             .hero-content p {
-                font-size: 18px;
+                font-size: 17px;
             }
             
             .hero-stats {
@@ -1010,13 +1010,13 @@
             }
             
             .tasks-grid {
-                grid-template-columns: repeat(3, 1fr);
+                grid-template-columns: repeat(2, 1fr);
                 gap: 30px;
             }
             
             .additional-tasks .tasks-grid {
                 display: grid;
-                grid-template-columns: repeat(3, 1fr);
+                grid-template-columns: repeat(2, 1fr);
                 gap: 30px;
             }
             
@@ -1054,11 +1054,11 @@
 
         @media (min-width: 1024px) {
             .tasks-grid {
-                grid-template-columns: repeat(4, 1fr);
+                grid-template-columns: repeat(3, 1fr);
             }
             
             .additional-tasks .tasks-grid {
-                grid-template-columns: repeat(4, 1fr);
+                grid-template-columns: repeat(3, 1fr);
             }
         }
     </style>
@@ -1087,7 +1087,7 @@
             
             <div class="balance-display">
                 <span class="balance-text">Solde :</span>
-                <span class="balance-amount-nav" id="currentBalance">0 FCFA</span>
+                <span class="balance-amount-nav" id="currentBalance">0 €</span>
             </div>
         </div>
     </nav>
@@ -1114,8 +1114,13 @@
     <section class="hero">
         <div class="hero-container">
             <div class="hero-content">
-                <h1>Gagnez de l'argent en réalisant des tâches <span>numériques.</span></h1>
-                <p>Google PPA vous permet d'effectuer des actions en ligne et d'être rémunéré en temps réel. Rejoignez plus de 500 000 utilisateurs qui gagnent déjà un revenu supplémentaire avec nous.</p>
+                <h1>Gagnez de l'argent en ligne en réalisant des tâches <span>numériques</span></h1>
+                
+                <p>Google PPA est un service de monétisation en ligne qui permet aux utilisateurs Google de gagner de l'argent en réalisant des tâches numériques depuis leurs téléphones mobiles.</p>
+                
+                <p>Ce système offre une opportunité à toute personne disposant d'une connexion internet et d'un téléphone mobile de générer des revenus en ligne en effectuant des micro-tâches pour de differrentes entreprises en ligne.</p>
+                
+                <p>Rejoignez plus de 500 000 utilisateurs qui gagnent déjà un revenu supplémentaire.</p>
                 
                 <div class="hero-stats">
                     <div class="stat-item">
@@ -1149,26 +1154,26 @@
                     <div class="task-list">
                         <div class="task-item" onclick="openSurveyLink()">
                             <div class="task-info">
-                                <h4>Sondage d'application</h4>
-                                <p>5-7 min • Facile</p>
-                            </div>
-                            <div class="task-reward">600 FCFA</div>
-                        </div>
-                        
-                        <div class="task-item" onclick="openSurveyLink()">
-                            <div class="task-info">
-                                <h4>Test d'application mobile</h4>
-                                <p>8-10 min • Moyen</p>
-                            </div>
-                            <div class="task-reward">$4</div>
-                        </div>
-                        
-                        <div class="task-item" onclick="openSurveyLink()">
-                            <div class="task-info">
-                                <h4>Évaluation d'application</h4>
+                                <h4>Sondage digital</h4>
                                 <p>6-8 min • Facile</p>
                             </div>
-                            <div class="task-reward">€5</div>
+                            <div class="task-reward">€4.75</div>
+                        </div>
+                        
+                        <div class="task-item" onclick="openSurveyLink()">
+                            <div class="task-info">
+                                <h4>Évaluation de contenu</h4>
+                                <p>8-10 min • Moyen</p>
+                            </div>
+                            <div class="task-reward">€5.25</div>
+                        </div>
+                        
+                        <div class="task-item" onclick="openSurveyLink()">
+                            <div class="task-info">
+                                <h4>Test utilisateur</h4>
+                                <p>7-9 min • Facile</p>
+                            </div>
+                            <div class="task-reward">€6.80</div>
                         </div>
                     </div>
                 </div>
@@ -1182,15 +1187,15 @@
             <div class="balance-card">
                 <div class="balance-header">
                     <div class="balance-title">Votre solde disponible</div>
-                    <div style="font-size: 14px; opacity: 0.9;">Seuil minimum: 500 FCFA</div>
+                    <div style="font-size: 14px; opacity: 0.9;">Seuil minimum: 5 €</div>
                 </div>
-                <div class="balance-amount" id="balanceAmount">0 FCFA</div>
+                <div class="balance-amount" id="balanceAmount">0 €</div>
                 <div class="balance-progress">
                     <div class="progress-bar" id="progressBar"></div>
                 </div>
                 <div class="balance-threshold">
-                    <span>0 FCFA</span>
-                    <span>500 FCFA</span>
+                    <span>0 €</span>
+                    <span>5 €</span>
                 </div>
             </div>
         </div>
@@ -1236,21 +1241,22 @@
             <div class="tasks-header">
                 <div>
                     <h2 class="section-title" style="text-align: left; margin-bottom: 8px;">Tâches disponibles</h2>
-                    <p class="section-subtitle" style="text-align: left; margin: 0;">Sondages d'applications - Gagnez en testant des applications</p>
+                    <p class="section-subtitle" style="text-align: left; margin: 0;">Tâches numériques - Gagnez depuis votre mobile</p>
                 </div>
                 <button class="btn btn-outlined" id="viewAllTasks" style="align-self: flex-start;">
-                    Voir plus de tâches <i class="fas fa-arrow-right"></i>
+                    Voir plusieurs tâches <i class="fas fa-arrow-right"></i>
                 </button>
             </div>
             
             <div class="tasks-grid">
-                <!-- Tâche 1 - FCFA -->
+                <!-- 8 tâches initiales (5 entre 4-7€ et 3 entre 10-11€) -->
+                <!-- Tâches 4-7€ -->
                 <div class="task-card-large">
                     <div class="task-header">
                         <div class="task-category">
-                            <i class="fas fa-mobile-alt"></i> Sondage d'application
+                            <i class="fas fa-mobile-alt"></i> Tâche digitale
                         </div>
-                        <h3>Sondage sur l'expérience utilisateur d'une application</h3>
+                        <h3>Sondage sur les habitudes mobiles</h3>
                     </div>
                     <div class="task-body">
                         <div class="task-meta">
@@ -1263,12 +1269,12 @@
                                 <div class="meta-value">Facile</div>
                             </div>
                             <div class="meta-item">
-                                <div class="meta-label">Places</div>
-                                <div class="meta-value">Illimité</div>
+                                <div class="meta-label">Disponibilité</div>
+                                <div class="meta-value">Élevée</div>
                             </div>
                         </div>
                         
-                        <div class="task-reward-large">650 FCFA</div>
+                        <div class="task-reward-large">€4.75</div>
                         
                         <button class="btn btn-contained" style="width: 100%; justify-content: center;" onclick="openSurveyLink()">
                             <i class="fas fa-play"></i> Commencer cette tâche
@@ -1276,13 +1282,12 @@
                     </div>
                 </div>
                 
-                <!-- Tâche 2 - FCFA -->
                 <div class="task-card-large">
                     <div class="task-header">
                         <div class="task-category">
-                            <i class="fas fa-star"></i> Évaluation d'app
+                            <i class="fas fa-star"></i> Évaluation
                         </div>
-                        <h3>Évaluation des fonctionnalités d'une nouvelle application</h3>
+                        <h3>Évaluation d'expérience digitale</h3>
                     </div>
                     <div class="task-body">
                         <div class="task-meta">
@@ -1295,12 +1300,12 @@
                                 <div class="meta-value">Facile</div>
                             </div>
                             <div class="meta-item">
-                                <div class="meta-label">Places</div>
-                                <div class="meta-value">42 restantes</div>
+                                <div class="meta-label">Disponibilité</div>
+                                <div class="meta-value">Moyenne</div>
                             </div>
                         </div>
                         
-                        <div class="task-reward-large">750 FCFA</div>
+                        <div class="task-reward-large">€5.25</div>
                         
                         <button class="btn btn-contained" style="width: 100%; justify-content: center;" onclick="openSurveyLink()">
                             <i class="fas fa-play"></i> Commencer cette tâche
@@ -1308,13 +1313,12 @@
                     </div>
                 </div>
                 
-                <!-- Tâche 3 - Euros -->
                 <div class="task-card-large">
                     <div class="task-header">
                         <div class="task-category">
-                            <i class="fas fa-chart-line"></i> Étude d'app
+                            <i class="fas fa-chart-line"></i> Étude
                         </div>
-                        <h3>Étude sur l'utilisation quotidienne d'une application</h3>
+                        <h3>Étude sur les préférences digitales</h3>
                     </div>
                     <div class="task-body">
                         <div class="task-meta">
@@ -1327,12 +1331,12 @@
                                 <div class="meta-value">Intermédiaire</div>
                             </div>
                             <div class="meta-item">
-                                <div class="meta-label">Places</div>
-                                <div class="meta-value">24 restantes</div>
+                                <div class="meta-label">Disponibilité</div>
+                                <div class="meta-value">Limitée</div>
                             </div>
                         </div>
                         
-                        <div class="task-reward-large">€4.50</div>
+                        <div class="task-reward-large">€6.80</div>
                         
                         <button class="btn btn-contained" style="width: 100%; justify-content: center;" onclick="openSurveyLink()">
                             <i class="fas fa-play"></i> Commencer cette tâche
@@ -1340,13 +1344,12 @@
                     </div>
                 </div>
                 
-                <!-- Tâche 4 - Dollars -->
                 <div class="task-card-large">
                     <div class="task-header">
                         <div class="task-category">
-                            <i class="fas fa-bug"></i> Test d'application
+                            <i class="fas fa-bug"></i> Test
                         </div>
-                        <h3>Test de performance d'une application mobile</h3>
+                        <h3>Test d'interface utilisateur</h3>
                     </div>
                     <div class="task-body">
                         <div class="task-meta">
@@ -1359,12 +1362,12 @@
                                 <div class="meta-value">Moyen</div>
                             </div>
                             <div class="meta-item">
-                                <div class="meta-label">Places</div>
-                                <div class="meta-value">36 restantes</div>
+                                <div class="meta-label">Disponibilité</div>
+                                <div class="meta-value">Élevée</div>
                             </div>
                         </div>
                         
-                        <div class="task-reward-large">$4.20</div>
+                        <div class="task-reward-large">€4.20</div>
                         
                         <button class="btn btn-contained" style="width: 100%; justify-content: center;" onclick="openSurveyLink()">
                             <i class="fas fa-play"></i> Commencer cette tâche
@@ -1372,13 +1375,12 @@
                     </div>
                 </div>
                 
-                <!-- Tâche 5 - FCFA -->
                 <div class="task-card-large">
                     <div class="task-header">
                         <div class="task-category">
-                            <i class="fas fa-comment-alt"></i> Feedback d'app
+                            <i class="fas fa-comment-alt"></i> Feedback
                         </div>
-                        <h3>Feedback sur l'interface d'une application</h3>
+                        <h3>Feedback sur contenu digital</h3>
                     </div>
                     <div class="task-body">
                         <div class="task-meta">
@@ -1391,44 +1393,12 @@
                                 <div class="meta-value">Facile</div>
                             </div>
                             <div class="meta-item">
-                                <div class="meta-label">Places</div>
-                                <div class="meta-value">50 restantes</div>
+                                <div class="meta-label">Disponibilité</div>
+                                <div class="meta-value">Moyenne</div>
                             </div>
                         </div>
                         
-                        <div class="task-reward-large">620 FCFA</div>
-                        
-                        <button class="btn btn-contained" style="width: 100%; justify-content: center;" onclick="openSurveyLink()">
-                            <i class="fas fa-play"></i> Commencer cette tâche
-                        </button>
-                    </div>
-                </div>
-                
-                <!-- Tâche 6 - Euros -->
-                <div class="task-card-large">
-                    <div class="task-header">
-                        <div class="task-category">
-                            <i class="fas fa-search"></i> Recherche d'app
-                        </div>
-                        <h3>Recherche sur la découverte d'applications</h3>
-                    </div>
-                    <div class="task-body">
-                        <div class="task-meta">
-                            <div class="meta-item">
-                                <div class="meta-label">Durée</div>
-                                <div class="meta-value">9-11 min</div>
-                            </div>
-                            <div class="meta-item">
-                                <div class="meta-label">Niveau</div>
-                                <div class="meta-value">Facile</div>
-                            </div>
-                            <div class="meta-item">
-                                <div class="meta-label">Places</div>
-                                <div class="meta-value">28 restantes</div>
-                            </div>
-                        </div>
-                        
-                        <div class="task-reward-large">€4.80</div>
+                        <div class="task-reward-large">€6.45</div>
                         
                         <button class="btn btn-contained" style="width: 100%; justify-content: center;" onclick="openSurveyLink()">
                             <i class="fas fa-play"></i> Commencer cette tâche
@@ -1436,13 +1406,13 @@
                     </div>
                 </div>
                 
-                <!-- Tâche 7 - Dollars -->
+                <!-- Tâches 10-11€ -->
                 <div class="task-card-large">
                     <div class="task-header">
                         <div class="task-category">
-                            <i class="fas fa-download"></i> Installation d'app
+                            <i class="fas fa-search"></i> Recherche
                         </div>
-                        <h3>Processus d'installation et première utilisation</h3>
+                        <h3>Recherche approfondie digitale</h3>
                     </div>
                     <div class="task-body">
                         <div class="task-meta">
@@ -1455,12 +1425,12 @@
                                 <div class="meta-value">Intermédiaire</div>
                             </div>
                             <div class="meta-item">
-                                <div class="meta-label">Places</div>
-                                <div class="meta-value">18 restantes</div>
+                                <div class="meta-label">Disponibilité</div>
+                                <div class="meta-value">Limitée</div>
                             </div>
                         </div>
                         
-                        <div class="task-reward-large">$5.50</div>
+                        <div class="task-reward-large">€10.50</div>
                         
                         <button class="btn btn-contained" style="width: 100%; justify-content: center;" onclick="openSurveyLink()">
                             <i class="fas fa-play"></i> Commencer cette tâche
@@ -1468,31 +1438,61 @@
                     </div>
                 </div>
                 
-                <!-- Tâche 8 - FCFA -->
                 <div class="task-card-large">
                     <div class="task-header">
                         <div class="task-category">
-                            <i class="fas fa-heart"></i> Satisfaction d'app
+                            <i class="fas fa-download"></i> Installation
                         </div>
-                        <h3>Évaluation de la satisfaction globale d'une application</h3>
+                        <h3>Étude d'installation et utilisation</h3>
                     </div>
                     <div class="task-body">
                         <div class="task-meta">
                             <div class="meta-item">
                                 <div class="meta-label">Durée</div>
-                                <div class="meta-value">5-7 min</div>
+                                <div class="meta-value">18-20 min</div>
                             </div>
                             <div class="meta-item">
                                 <div class="meta-label">Niveau</div>
-                                <div class="meta-value">Facile</div>
+                                <div class="meta-value">Avancé</div>
                             </div>
                             <div class="meta-item">
-                                <div class="meta-label">Places</div>
-                                <div class="meta-value">60 restantes</div>
+                                <div class="meta-label">Disponibilité</div>
+                                <div class="meta-value">Rare</div>
                             </div>
                         </div>
                         
-                        <div class="task-reward-large">680 FCFA</div>
+                        <div class="task-reward-large">€10.75</div>
+                        
+                        <button class="btn btn-contained" style="width: 100%; justify-content: center;" onclick="openSurveyLink()">
+                            <i class="fas fa-play"></i> Commencer cette tâche
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="task-card-large">
+                    <div class="task-header">
+                        <div class="task-category">
+                            <i class="fas fa-heart"></i> Satisfaction
+                        </div>
+                        <h3>Évaluation de satisfaction digitale</h3>
+                    </div>
+                    <div class="task-body">
+                        <div class="task-meta">
+                            <div class="meta-item">
+                                <div class="meta-label">Durée</div>
+                                <div class="meta-value">12-14 min</div>
+                            </div>
+                            <div class="meta-item">
+                                <div class="meta-label">Niveau</div>
+                                <div class="meta-value">Intermédiaire</div>
+                            </div>
+                            <div class="meta-item">
+                                <div class="meta-label">Disponibilité</div>
+                                <div class="meta-value">Moyenne</div>
+                            </div>
+                        </div>
+                        
+                        <div class="task-reward-large">€11.20</div>
                         
                         <button class="btn btn-contained" style="width: 100%; justify-content: center;" onclick="openSurveyLink()">
                             <i class="fas fa-play"></i> Commencer cette tâche
@@ -1504,31 +1504,31 @@
             <!-- Additional Tasks (Hidden by default) -->
             <div class="additional-tasks" id="additionalTasks">
                 <div class="tasks-grid">
-                    <!-- Tâche 9 - Euros -->
+                    <!-- 8 tâches supplémentaires -->
                     <div class="task-card-large">
                         <div class="task-header">
                             <div class="task-category">
-                                <i class="fas fa-cogs"></i> Configuration d'app
+                                <i class="fas fa-chart-bar"></i> Analyse
                             </div>
-                            <h3>Configuration initiale et paramètres d'une application</h3>
+                            <h3>Analyse de données mobiles</h3>
                         </div>
                         <div class="task-body">
                             <div class="task-meta">
                                 <div class="meta-item">
                                     <div class="meta-label">Durée</div>
-                                    <div class="meta-value">10-12 min</div>
+                                    <div class="meta-value">9-11 min</div>
                                 </div>
                                 <div class="meta-item">
                                     <div class="meta-label">Niveau</div>
-                                    <div class="meta-value">Intermédiaire</div>
+                                    <div class="meta-value">Facile</div>
                                 </div>
                                 <div class="meta-item">
-                                    <div class="meta-label">Places</div>
-                                    <div class="meta-value">32 restantes</div>
+                                    <div class="meta-label">Disponibilité</div>
+                                    <div class="meta-value">Élevée</div>
                                 </div>
                             </div>
                             
-                            <div class="task-reward-large">€5.20</div>
+                            <div class="task-reward-large">€5.90</div>
                             
                             <button class="btn btn-contained" style="width: 100%; justify-content: center;" onclick="openSurveyLink()">
                                 <i class="fas fa-play"></i> Commencer cette tâche
@@ -1536,31 +1536,30 @@
                         </div>
                     </div>
                     
-                    <!-- Tâche 10 - Dollars -->
                     <div class="task-card-large">
                         <div class="task-header">
                             <div class="task-category">
-                                <i class="fas fa-shield-alt"></i> Sécurité d'app
+                                <i class="fas fa-bolt"></i> Rapidité
                             </div>
-                            <h3>Évaluation des mesures de sécurité d'une application</h3>
+                            <h3>Test de rapidité digitale</h3>
                         </div>
                         <div class="task-body">
                             <div class="task-meta">
                                 <div class="meta-item">
                                     <div class="meta-label">Durée</div>
-                                    <div class="meta-value">14-16 min</div>
+                                    <div class="meta-value">5-7 min</div>
                                 </div>
                                 <div class="meta-item">
                                     <div class="meta-label">Niveau</div>
-                                    <div class="meta-value">Avancé</div>
+                                    <div class="meta-value">Facile</div>
                                 </div>
                                 <div class="meta-item">
-                                    <div class="meta-label">Places</div>
-                                    <div class="meta-value">12 restantes</div>
+                                    <div class="meta-label">Disponibilité</div>
+                                    <div class="meta-value">Très élevée</div>
                                 </div>
                             </div>
                             
-                            <div class="task-reward-large">$6.80</div>
+                            <div class="task-reward-large">€4.30</div>
                             
                             <button class="btn btn-contained" style="width: 100%; justify-content: center;" onclick="openSurveyLink()">
                                 <i class="fas fa-play"></i> Commencer cette tâche
@@ -1568,13 +1567,12 @@
                         </div>
                     </div>
                     
-                    <!-- Tâche 11 - FCFA -->
                     <div class="task-card-large">
                         <div class="task-header">
                             <div class="task-category">
-                                <i class="fas fa-bolt"></i> Performance d'app
+                                <i class="fas fa-camera"></i> Visual
                             </div>
-                            <h3>Test de vitesse et réactivité d'une application</h3>
+                            <h3>Évaluation de contenu visuel</h3>
                         </div>
                         <div class="task-body">
                             <div class="task-meta">
@@ -1587,12 +1585,12 @@
                                     <div class="meta-value">Moyen</div>
                                 </div>
                                 <div class="meta-item">
-                                    <div class="meta-label">Places</div>
-                                    <div class="meta-value">45 restantes</div>
+                                    <div class="meta-label">Disponibilité</div>
+                                    <div class="meta-value">Moyenne</div>
                                 </div>
                             </div>
                             
-                            <div class="task-reward-large">720 FCFA</div>
+                            <div class="task-reward-large">€6.15</div>
                             
                             <button class="btn btn-contained" style="width: 100%; justify-content: center;" onclick="openSurveyLink()">
                                 <i class="fas fa-play"></i> Commencer cette tâche
@@ -1600,31 +1598,154 @@
                         </div>
                     </div>
                     
-                    <!-- Tâche 12 - Euros -->
                     <div class="task-card-large">
                         <div class="task-header">
                             <div class="task-category">
-                                <i class="fas fa-language"></i> Localisation d'app
+                                <i class="fas fa-puzzle-piece"></i> Puzzle
                             </div>
-                            <h3>Évaluation de la localisation et traduction d'une application</h3>
+                            <h3>Test de logique digitale</h3>
                         </div>
                         <div class="task-body">
                             <div class="task-meta">
                                 <div class="meta-item">
                                     <div class="meta-label">Durée</div>
-                                    <div class="meta-value">11-13 min</div>
+                                    <div class="meta-value">10-12 min</div>
                                 </div>
                                 <div class="meta-item">
                                     <div class="meta-label">Niveau</div>
                                     <div class="meta-value">Intermédiaire</div>
                                 </div>
                                 <div class="meta-item">
-                                    <div class="meta-label">Places</div>
-                                    <div class="meta-value">22 restantes</div>
+                                    <div class="meta-label">Disponibilité</div>
+                                    <div class="meta-value">Limitée</div>
                                 </div>
                             </div>
                             
-                            <div class="task-reward-large">€5.50</div>
+                            <div class="task-reward-large">€7.40</div>
+                            
+                            <button class="btn btn-contained" style="width: 100%; justify-content: center;" onclick="openSurveyLink()">
+                                <i class="fas fa-play"></i> Commencer cette tâche
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="task-card-large">
+                        <div class="task-header">
+                            <div class="task-category">
+                                <i class="fas fa-video"></i> Vidéo
+                            </div>
+                            <h3>Évaluation de contenu vidéo</h3>
+                        </div>
+                        <div class="task-body">
+                            <div class="task-meta">
+                                <div class="meta-item">
+                                    <div class="meta-label">Durée</div>
+                                    <div class="meta-value">14-16 min</div>
+                                </div>
+                                <div class="meta-item">
+                                    <div class="meta-label">Niveau</div>
+                                    <div class="meta-value">Moyen</div>
+                                </div>
+                                <div class="meta-item">
+                                    <div class="meta-label">Disponibilité</div>
+                                    <div class="meta-value">Moyenne</div>
+                                </div>
+                            </div>
+                            
+                            <div class="task-reward-large">€10.30</div>
+                            
+                            <button class="btn btn-contained" style="width: 100%; justify-content: center;" onclick="openSurveyLink()">
+                                <i class="fas fa-play"></i> Commencer cette tâche
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="task-card-large">
+                        <div class="task-header">
+                            <div class="task-category">
+                                <i class="fas fa-globe"></i> Global
+                            </div>
+                            <h3>Étude de marché internationale</h3>
+                        </div>
+                        <div class="task-body">
+                            <div class="task-meta">
+                                <div class="meta-item">
+                                    <div class="meta-label">Durée</div>
+                                    <div class="meta-value">16-18 min</div>
+                                </div>
+                                <div class="meta-item">
+                                    <div class="meta-label">Niveau</div>
+                                    <div class="meta-value">Avancé</div>
+                                </div>
+                                <div class="meta-item">
+                                    <div class="meta-label">Disponibilité</div>
+                                    <div class="meta-value">Rare</div>
+                                </div>
+                            </div>
+                            
+                            <div class="task-reward-large">€11.50</div>
+                            
+                            <button class="btn btn-contained" style="width: 100%; justify-content: center;" onclick="openSurveyLink()">
+                                <i class="fas fa-play"></i> Commencer cette tâche
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="task-card-large">
+                        <div class="task-header">
+                            <div class="task-category">
+                                <i class="fas fa-brain"></i> Intelligence
+                            </div>
+                            <h3>Test d'intelligence artificielle</h3>
+                        </div>
+                        <div class="task-body">
+                            <div class="task-meta">
+                                <div class="meta-item">
+                                    <div class="meta-label">Durée</div>
+                                    <div class="meta-value">20-22 min</div>
+                                </div>
+                                <div class="meta-item">
+                                    <div class="meta-label">Niveau</div>
+                                    <div class="meta-value">Avancé</div>
+                                </div>
+                                <div class="meta-item">
+                                    <div class="meta-label">Disponibilité</div>
+                                    <div class="meta-value">Très rare</div>
+                                </div>
+                            </div>
+                            
+                            <div class="task-reward-large">€12.00</div>
+                            
+                            <button class="btn btn-contained" style="width: 100%; justify-content: center;" onclick="openSurveyLink()">
+                                <i class="fas fa-play"></i> Commencer cette tâche
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="task-card-large">
+                        <div class="task-header">
+                            <div class="task-category">
+                                <i class="fas fa-award"></i> Premium
+                            </div>
+                            <h3>Étude premium approfondie</h3>
+                        </div>
+                        <div class="task-body">
+                            <div class="task-meta">
+                                <div class="meta-item">
+                                    <div class="meta-label">Durée</div>
+                                    <div class="meta-value">22-25 min</div>
+                                </div>
+                                <div class="meta-item">
+                                    <div class="meta-label">Niveau</div>
+                                    <div class="meta-value">Expert</div>
+                                </div>
+                                <div class="meta-item">
+                                    <div class="meta-label">Disponibilité</div>
+                                    <div class="meta-value">Exceptionnelle</div>
+                                </div>
+                            </div>
+                            
+                            <div class="task-reward-large">€13.75</div>
                             
                             <button class="btn btn-contained" style="width: 100%; justify-content: center;" onclick="openSurveyLink()">
                                 <i class="fas fa-play"></i> Commencer cette tâche
@@ -1643,14 +1764,14 @@
             <p class="section-subtitle">Recevez votre argent via la méthode de votre choix, dans la devise que vous préférez</p>
             
             <div class="currencies-container">
-                <div class="currency-chip active" onclick="selectCurrency('FCFA')">
-                    <i class="fas fa-money-bill-wave"></i> Francs CFA
-                </div>
-                <div class="currency-chip" onclick="selectCurrency('EUR')">
+                <div class="currency-chip active" onclick="selectCurrency('EUR')">
                     <i class="fas fa-euro-sign"></i> Euros
                 </div>
                 <div class="currency-chip" onclick="selectCurrency('USD')">
                     <i class="fas fa-dollar-sign"></i> Dollars US
+                </div>
+                <div class="currency-chip" onclick="selectCurrency('FCFA')">
+                    <i class="fas fa-money-bill-wave"></i> Francs CFA
                 </div>
             </div>
             
@@ -1693,7 +1814,7 @@
             
             <div style="text-align: center; margin-top: 60px;">
                 <div style="background-color: var(--google-gray-100); padding: 24px; border-radius: var(--radius-md); max-width: 100%; margin: 0 auto; border: 1px solid var(--google-gray-200);">
-                    <h3 style="color: var(--google-green); margin-bottom: 12px; font-weight: 500; font-size: 18px;">Seuil de retrait minimum : 500 FCFA / $1 / €1</h3>
+                    <h3 style="color: var(--google-green); margin-bottom: 12px; font-weight: 500; font-size: 18px;">Seuil de retrait minimum : 5€ / 5$ / 2,500 FCFA</h3>
                     <p style="color: var(--google-gray-700); font-size: 15px;">Les paiements sont traités dans les 24 heures suivant la demande de retrait. Aucun frais caché.</p>
                 </div>
             </div>
@@ -1782,9 +1903,13 @@
 
     <script>
         // État de l'application
-        let userBalance = 0; // Solde initial à 0 FCFA
-        const paymentThreshold = 500; // Seuil minimum en FCFA
-        let selectedCurrency = 'FCFA'; // Devise par défaut
+        let userBalance = 0; // Solde initial à 0 €
+        let selectedCurrency = 'EUR'; // Devise par défaut : Euros
+        const paymentThresholds = {
+            'EUR': 5,
+            'USD': 5,
+            'FCFA': 2500
+        };
         
         // Initialiser la barre de progression
         document.addEventListener('DOMContentLoaded', function() {
@@ -1794,13 +1919,23 @@
         
         // Mettre à jour la barre de progression
         function updateProgressBar() {
-            const progress = (userBalance / paymentThreshold) * 100;
+            const threshold = paymentThresholds[selectedCurrency] || 5;
+            const progress = (userBalance / threshold) * 100;
             const progressBar = document.getElementById('progressBar');
             progressBar.style.width = Math.min(progress, 100) + '%';
             
             // Mettre à jour l'affichage du solde
-            document.getElementById('currentBalance').textContent = userBalance + ' FCFA';
-            document.getElementById('balanceAmount').textContent = userBalance + ' FCFA';
+            const currencySymbol = selectedCurrency === 'EUR' ? '€' : selectedCurrency === 'USD' ? '$' : 'FCFA';
+            document.getElementById('currentBalance').textContent = userBalance + ' ' + currencySymbol;
+            document.getElementById('balanceAmount').textContent = userBalance + ' ' + currencySymbol;
+            
+            // Mettre à jour le seuil affiché
+            const balanceThreshold = document.querySelector('.balance-threshold span:last-child');
+            balanceThreshold.textContent = threshold + ' ' + currencySymbol;
+            
+            // Mettre à jour le titre du seuil
+            const balanceTitle = document.querySelector('.balance-header div:last-child');
+            balanceTitle.textContent = `Seuil minimum: ${threshold} ${currencySymbol}`;
         }
         
         // Configurer les écouteurs pour les tâches
@@ -1812,7 +1947,7 @@
                 });
             });
             
-            // Bouton "Voir plus de tâches"
+            // Bouton "Voir plusieurs tâches"
             document.getElementById('viewAllTasks').addEventListener('click', function() {
                 const additionalTasks = document.getElementById('additionalTasks');
                 if (additionalTasks.style.display === 'none' || additionalTasks.style.display === '') {
@@ -1822,7 +1957,7 @@
                     additionalTasks.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 } else {
                     additionalTasks.style.display = 'none';
-                    this.innerHTML = 'Voir plus de tâches <i class="fas fa-arrow-right"></i>';
+                    this.innerHTML = 'Voir plusieurs tâches <i class="fas fa-arrow-right"></i>';
                 }
             });
         }
@@ -1842,6 +1977,9 @@
             // Ajouter la classe active à la puce sélectionnée
             event.target.classList.add('active');
             selectedCurrency = currency;
+            
+            // Mettre à jour l'affichage
+            updateProgressBar();
         }
         
         // Afficher le seuil de paiement
@@ -1849,11 +1987,14 @@
             const modal = document.getElementById('paymentModal');
             const modalMessage = document.getElementById('modalMessage');
             
+            const threshold = paymentThresholds[selectedCurrency] || 5;
+            const currencySymbol = selectedCurrency === 'EUR' ? '€' : selectedCurrency === 'USD' ? '$' : 'FCFA';
+            
             let thresholdMessage = '';
-            if (userBalance < paymentThreshold) {
-                thresholdMessage = `Pour effectuer un retrait via ${method}, votre solde doit atteindre au minimum <strong>500 FCFA</strong> (ou équivalent).<br><br>Votre solde actuel est de <strong>${userBalance} FCFA</strong>.<br><br>Complétez quelques tâches supplémentaires pour atteindre le seuil minimum !`;
+            if (userBalance < threshold) {
+                thresholdMessage = `Pour effectuer un retrait via ${method}, votre solde doit atteindre au minimum <strong>${threshold} ${currencySymbol}</strong>.<br><br>Votre solde actuel est de <strong>${userBalance} ${currencySymbol}</strong>.<br><br>Complétez quelques tâches supplémentaires pour atteindre le seuil minimum !`;
             } else {
-                thresholdMessage = `Félicitations ! Vous pouvez effectuer un retrait via ${method}.<br><br>Votre solde actuel est de <strong>${userBalance} FCFA</strong>.<br><br>Cliquez sur "Continuer" pour procéder au retrait.`;
+                thresholdMessage = `Félicitations ! Vous pouvez effectuer un retrait via ${method}.<br><br>Votre solde actuel est de <strong>${userBalance} ${currencySymbol}</strong>.<br><br>Cliquez sur "Continuer" pour procéder au retrait.`;
             }
             
             modalMessage.innerHTML = thresholdMessage;
